@@ -1,0 +1,75 @@
+﻿<div class="ui-g">
+    <div class="ui-g-12 ui-md-12">
+        <div class="ui-g">
+            <p-fieldset legend="Product Attribute Values" [toggleable]="true">
+                <div class="ui-g-4">
+                    Product Attribute<br/>
+                    <p-dropdown [options]="productAttributeList" [(ngModel)]="selectedProductAttribute" (onChange)="handleProductAttributeChange($event)"></p-dropdown>
+                </div>
+                <div *ngIf="showPrductAttributeValues">
+                    <div class="ui-g-4">
+                        <listEntry (valuesChanged)="productAttributeValuesChanged($event)" [disabled]="disableProductAttributeValue" [Creator]="productAttributeValueCreater" [EnteryValues]="productAttributeValues"></listEntry>
+                    </div>
+                    <div class="ui-g-3">
+                        Default Value<br/>
+                        <p-dropdown [options]="productAttributeValues" [(ngModel)]="defaultProductAttributeValue" (onChange)="handleDefaultProductAttributeValueChange($event)"></p-dropdown>
+                    </div>
+                    <div class="ui-g-12">
+                        <button pButton type="button" [disabled]="disableProductAttributeValue" (click)="clickSaveProductAttributeValues()" label="Save Values"></button>
+                    </div>
+                </div>
+            </p-fieldset>
+        </div>
+        <div class="ui-g">
+            <p-fieldset legend="Product Option Attributes" [toggleable]="true" [collapsed]="true">
+                <div class="ui-g-5">
+                    Product Option<br />
+                    <p-dropdown [options]="productOptionList" [(ngModel)]="selectedProductOption" (onChange)="handleProductOptionChange($event)"></p-dropdown>
+                </div>
+                <div class="ui-g-4">
+                    <p-pickList [sourceHeader]="productOptionAttributeSourceHeading"
+                                [source]="possibleAttributes"
+                                [targetHeader]="productOptionAttributeTargetHeader"
+                                [target]="attributes"
+                                [showSourceControls]="false"
+                                [showTargetControls]="false">
+                        <ng-template let-option pTemplate="item">
+                            {{option.name}}
+                        </ng-template>
+                    </p-pickList>
+                </div>
+                <div class="ui-g-12">
+                    <button pButton type="button" [disabled]="!validProductOption" (click)="clickSaveAttributes()" label="Save Attributes"></button>
+                </div>
+            </p-fieldset>
+        </div>
+        <div class="ui-g">
+            <p-fieldset legend="Product Option Attribute Values" [toggleable]="true" [collapsed]="true">
+                <div *ngIf="!validProductOption">
+                    <div class="ui-g-12">
+                        Product Option<br/>
+                        <p-dropdown [options]="productOptionForAttributeValueList" [(ngModel)]="selectedProductOptionForAttributeValue" (onChange)="handleProductOptionForAttributeValueChange($event)"></p-dropdown>
+                    </div>
+                    <div class="ui-g-12" *ngIf="showDetail">
+                        <div class="ui-g-4">
+                            Product Attribute<br/>
+                            <p-dropdown [options]="productOptionAttributeList" [(ngModel)]="selectedProductOptionAttribute" (onChange)="handleProductOptionAttributeChange($event)"></p-dropdown>
+                        </div>
+                        <div *ngIf="showPrductOptionAttributeValues">
+                            <div class="ui-g-4">
+                                <listEntry (valuesChanged)="productOptionAttributeValuesChanged($event)" [disabled]="disableProductOptionAttributeValue" [Creator]="productOptionAttributeValueCreater" [EnteryValues]="productOptionAttributeValues"></listEntry>
+                            </div>
+                            <div class="ui-g-3">
+                                Default Value<br />
+                                <p-dropdown [options]="productOptionAttributeValues" [(ngModel)]="defaultProductOptionAttributeValue" (onChange)="handleDefaultProductOptionAttributeValueChange($event)"></p-dropdown>
+                            </div>
+                            <div class="ui-g-12">
+                                <button pButton type="button" [disabled]="disableProductOptionAttributeValue" (click)="clickSaveProductOptionAttributeValues()" label="Save Values"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </p-fieldset>
+        </div>
+    </div>
+</div>

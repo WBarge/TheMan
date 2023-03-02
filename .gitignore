@@ -54,3 +54,7 @@ Tests/OrderInvoice_BL_UnitTests/bin/
 Tests/OrderInvoice_BL_UnitTests/obj/
 
 OrderInvoice.sln.DotSettings.user
+
+Bussiness/OrderInvoice_Interfaces/bin/
+
+Bussiness/OrderInvoice_Interfaces/obj/

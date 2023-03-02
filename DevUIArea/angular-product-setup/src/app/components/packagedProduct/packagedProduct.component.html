@@ -1,0 +1,69 @@
+﻿<div *ngIf="selectedProduct!=null">
+    {{selectedProduct?.product?.name ? selectedProduct?.product?.name:'no product selected'}}: {{selectedProduct?.product?.description ?selectedProduct?.product?.description:''}}
+    <br />
+</div>
+<p-tabView [activeIndex]="tabIndex" (onChange)="handleTabChange($event)">
+    <p-tabPanel header="Product">
+        <div class="ui-g-12" *ngIf="validProducts">
+            Product to Package<br />
+            <p-dropdown [options]="productList "
+                        [(ngModel)]="selectedProduct"
+                        [styleClass]="'dropDownCol'"
+                        placeholder="Select a Product">
+            </p-dropdown>
+        </div>
+        <div class="ui-g-12" *ngIf="incomingPackagedProduct">
+            Marketing lingo<br />
+            <textarea [rows]="5" [cols]="30" pInputTextarea [(ngModel)]="incomingPackagedProduct.description"></textarea>
+            <br />
+            Number of products in package<br />
+            <p-spinner size="30" [(ngModel)]="incomingPackagedProduct.quantity" [min]="1" [step]="1" placeholder=""></p-spinner>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Options">
+        <div class="ui-g-12" *ngIf="selectedProduct">
+            <p-pickList [sourceHeader]="avaiableOptionHeader"
+                        [source]="possibleProductOptions"
+                        [targetHeader]="selectedOptionHeader"
+                        [target]="selectedProductOptions"
+                        [showSourceControls]="false"
+                        [showTargetControls]="false">
+                <ng-template let-option pTemplate="item">
+                    {{option.name}}
+                </ng-template>
+            </p-pickList>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Options Details">
+        <div *ngIf="selectedProduct && selectedProductOptions">
+            Product Option
+            <p-dropdown [options]="selectedProductOptionsList"
+                        [(ngModel)]="selectedProductOption"
+                        [styleClass]="'dropDownCol'"
+                        placeholder="Select a Product Option"
+                        (onChange)="handleProductOptionDropDownForOptionsDetailsTabChange($event)">
+            </p-dropdown><br/>
+            Marketing lingo<br/>
+            <textarea [rows]="5" [cols]="30" pInputTextarea [(ngModel)]="productOptionMarketingLingo"></textarea>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Product Attributes">
+        <div class="ui-g-12" *ngIf="selectedProduct && productAttributes">
+            <propertyBag [(ngModel)]="productAttributes"></propertyBag>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Options Attributes">
+        <div class="ui-g-12" *ngIf="selectedProductOptionsList">
+            Product Option to set Attributes for<br />
+            <p-dropdown [options]="selectedProductOptionsList"
+                        [(ngModel)]="selectedProductOption"
+                        [styleClass]="'dropDownCol'"
+                        placeholder="Select a Product Option"
+                        (onChange)="handleProductOptionDropDownForOptionAttributesTabChange($event)">
+            </p-dropdown>
+            <propertyBag [(ngModel)]="productOptionAttributes"></propertyBag>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Price">
+    </p-tabPanel>
+</p-tabView>

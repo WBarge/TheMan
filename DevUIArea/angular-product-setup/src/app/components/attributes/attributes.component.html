@@ -1,0 +1,39 @@
+﻿<p-table #attributeTable [value]="attributeData" [rows]="10" [paginator]="true">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <button type="button" pButton (click)="clickNewAttributeDialog()" label="Add"></button>
+            </th>
+            <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                <input pInputText type="text" (input)="attributeTable.filter($event.target.value, 'name', 'contains')">
+            </th>
+        </tr>
+
+    </ng-template>
+    <ng-template pTemplate="body" let-attribute>
+        <tr>
+            <td>
+                <button type="button" pButton (click)="clickDetailAttributeDialog(attribute)" icon="fa fa-binoculars"></button>
+            </td>
+            <td>{{attribute.name}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog header="Create New Attribute" [(visible)]="showNewAttributeDialog" modal="true" [closable]="true" width="800">
+    <attribute [AttributeData]="newAttribute"></attribute>
+    <p-footer>
+        <button type="button" pButton (click)="createNewAttributeDialogClick()" label="Create Attribute"></button>
+    </p-footer>
+</p-dialog>
+
+<p-dialog header="Attribute Details" [(visible)]="showAttributeDetailDialog" modal="true" [closable]="true" width="800">
+    <attribute [AttributeData]="selectedAttribute"></attribute>
+    <p-footer>
+        <button type="button" pButton (click)="saveAttributeDetailDialogClick()" label="Save Attribute"></button>
+    </p-footer>
+</p-dialog>

@@ -1,0 +1,95 @@
+﻿<p-table #productTable [value]="productData" [rows]="10" [paginator]="true">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <button type="button" pButton (click)="clickNewProductDialog()" label="Add"></button>
+            </th>
+            <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                <input pInputText type="text" (input)="productTable.filter($event.target.value, 'name', 'contains')">
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <button type="button" pButton (click)="clickDetailDialog(product)" icon="fa fa-binoculars"></button>
+                        </td>
+                        <td>
+                            <button type="button" pButton (click)="clickProductSetupDialog(product)" icon="fa fa-cogs"></button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>{{product.name}}</td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <button type="button" pButton (click)="clickSetOptionsDialog(product)" label="Set Options"></button>
+                        </td>
+                        <td>
+                            <button type="button" pButton (click)="clickSetAttributessDialog(product)" label="Set Attributes"></button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog header="Create New Product" [(visible)]="showNewProductDialog" position="Top" modal="true" [closable]="true" width="800">
+    <product [ProductData]="newProduct"></product>
+    <p-footer>
+        <button type="button" pButton (click)="createNewProductDialogClick()" label="Create Product"></button>
+    </p-footer>
+</p-dialog>
+
+<p-dialog header= "Product Details" [(visible)]="showProductDetailDialog" position="Top" minHeight="800" modal="true" [closable]="true" width="800" (onHide)="onHideProductDetails($event)">
+    <product [ProductData]="selectedProduct"></product>
+    <p-footer>
+        <button type="button" pButton (click)="saveProductDetailDialogClick()" label="Save Product"></button>
+    </p-footer>
+</p-dialog>
+
+<p-dialog header="{{selectedProduct != null?selectedProduct.name+ ' Detail Setup':'' + ' Detail Setup'}}" position="Top" [(visible)]="showProductSetupDialog" modal="true" [closable]="true">
+    <productSetup [ProductData]="selectedProduct" [ChangeTrigger]="trigerChange"></productSetup>
+</p-dialog>
+
+<p-dialog header="Associated Options" [(visible)]="showProductOptionsDialog" position="Top" modal="true" [closable]="true" width="800">
+    <p-pickList [sourceHeader]="productOptionsSourceHeading"
+                [source]="possibleProductionOptions"
+                [targetHeader]="productOptionsTargerHeading"
+                [target]="productOptions"
+                [showSourceControls]="false"
+                [showTargetControls]="false">
+        <ng-template let-option pTemplate="item" >
+            {{option.name}}
+        </ng-template>
+    </p-pickList>
+    <p-footer>
+        <button type="button" pButton (click)="clickSaveProductOptions()" label="Save Product Options"></button>
+    </p-footer>
+</p-dialog>
+
+<p-dialog header="Associated Attributes" [(visible)]="showProductAttributesDialog" position="Top" modal="true" [closable]="true" width="800">
+    <p-pickList [sourceHeader]="productAttributeSourceHeading"
+                [source]="possibleAttributes"
+                [targetHeader]="productAttributeTargetHeader"
+                [target]="attributes"
+                [showSourceControls]="false"
+                [showTargetControls]="false">
+        <ng-template let-option pTemplate="item">
+            {{option.name}}
+        </ng-template>
+    </p-pickList>
+    <p-footer>
+        <button type="button" pButton (click)="clickSaveProductAttributes()" label="Save Product Attributes"></button>
+    </p-footer>
+</p-dialog>

@@ -1,0 +1,9 @@
+﻿<div class="ui-g">
+    Name<br />
+    <input type="text" pInputText *ngIf="data" [(ngModel)]="data.name" />
+</div>
+<br />
+<div class="ui-g">
+    Description<br />
+    <textarea pInputText *ngIf="data" [(ngModel)]="data.description" rows="10" cols="80"></textarea>
+</div>

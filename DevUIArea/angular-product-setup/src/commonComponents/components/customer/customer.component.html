@@ -1,0 +1,36 @@
+﻿<div class="ui-g">
+    <p>Customer Number</p>
+    <input type="text" pInputText *ngIf="data" [(ngModel)]="data.customerNumber" readonly/>
+    <p-checkbox *ngIf="data" [(ngModel)]="data.active" binary="true" label="Active"></p-checkbox>
+</div>
+<div class="ui-g">
+    First Name<br />
+    <input type="text" pInputText *ngIf="data" [(ngModel)]="data.firstName"/>
+    Last Name<br />
+    <input type="text" pInputText *ngIf="data" [(ngModel)]="data.lastName"/>
+</div>
+<div class="ui-g">
+    User Name<br />
+    <input type="text" pInputText *ngIf="data" [(ngModel)]="data.userName" />
+</div>
+<div class="ui-g">
+    <p-checkbox *ngIf="data" [(ngModel)]="data.shippingIsSameAsBilling" binary="true" label="Shipping address is the same as the billing"></p-checkbox>
+</div>
+<div class="ui-g">
+    <div class="ui-g-4">
+        <addressPanel [Header]="billingAddressPanelHeading" *ngIf="data" [AddressData]="data.billingAddress" (ErrorHandler)="handleError($event)"></addressPanel>
+    </div>
+    <div class="ui-g-4">
+        <addressPanel [Header]="shippingAddressPanelHeading" *ngIf="data" [AddressData]="data.shippingAddress" (ErrorHandler)="handleError($event)"></addressPanel>
+    </div>
+</div>
+<div class="ui-g">
+    Email<br />
+    <input type="text" pInputText *ngIf="data" [(ngModel)]="data.email" />
+</div>
+<div class="ui-g">
+    Phone Number<br />
+    <p-inputMask *ngIf="data" [(ngModel)]="data.phoneNumber" mask="999-999-9999"></p-inputMask>
+    Number Type<br />
+    <p-dropdown appendTo="body" [options]="phoneNumberTypeList" *ngIf="data" [(ngModel)]="data.phoneNumberTypeValue" [autoWidth]="false"></p-dropdown>
+</div>

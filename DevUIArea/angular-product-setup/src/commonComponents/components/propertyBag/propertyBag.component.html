@@ -1,0 +1,28 @@
+﻿<p-table [value]="value" [rows]="5" [paginator]="true">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Descriptor</th>
+            <th>Setting</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-property>
+        <tr>
+            <td>{{property.name}}</td>
+            <td pEditableColumn>
+                <p-cellEditor>
+                    <ng-template pTemplate="output">
+                        <span>{{property.possibleValues == null? (property.enteredValue == null?'':property.enteredValue) : (property.selectedValue==null?'': property.selectedValue.label)}}</span>
+                    </ng-template>
+                    <ng-template pTemplate="input">
+                        <span *ngIf="property.possibleValues == null" >
+                            <input type="text" pInputText [(ngModel)]="property.enteredValue" />
+                        </span>
+                        <span *ngIf="property.possibleValues != null" >
+                            <p-dropdown [options]="property.possibleValues" [(ngModel)]="property.selectedValue"></p-dropdown>
+                        </span>
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
