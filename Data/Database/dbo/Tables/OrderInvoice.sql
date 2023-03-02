@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[OrderInvoice] (
+    [objid]                INT NOT NULL,
+    [customerObjid]        INT NOT NULL,
+    [employeeObjid]        INT NULL,
+    [orderNumber]          BIGINT           NOT NULL,
+    [shippingAddressLine1] VARCHAR (40)     NOT NULL,
+    [shippingAddressLine2] VARCHAR (40)     NOT NULL,
+    [shippingCity]         VARCHAR (40)     NOT NULL,
+    [shippingStateName]    VARCHAR (20)     NOT NULL,
+    [shippingCountryName]  VARCHAR (50)     NOT NULL,
+    [shippingzip]          CHAR (12)        NOT NULL,
+    [invoiceAddressLine1]  VARCHAR (40)     NOT NULL,
+    [invoiceAddressLine2]  VARCHAR (40)     NOT NULL,
+    [invoiceCity]          VARCHAR (40)     NOT NULL,
+    [invoiceStateName]     VARCHAR (20)     NOT NULL,
+    [invoiceCountryName]   VARCHAR (50)     NOT NULL,
+    [invoicezip]           CHAR (12)        NOT NULL,
+    [subTotal]             DECIMAL (18, 2)  NOT NULL,
+    [taxRate]              DECIMAL (4, 2)   NOT NULL,
+    [taxAmount]            DECIMAL (18, 2)  NOT NULL,
+    [total]                DECIMAL (18, 2)  NOT NULL,
+    [note]                 TEXT             NULL,
+    CONSTRAINT [PK_OrderInvoice] PRIMARY KEY CLUSTERED ([objid] ASC)
+);
+

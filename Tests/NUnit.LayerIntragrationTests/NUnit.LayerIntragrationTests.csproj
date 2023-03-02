@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\NUnit.3.11.0\build\NUnit.props" Condition="Exists('..\..\packages\NUnit.3.11.0\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8EDF4429-251A-416D-BB68-93F227191BCF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NUnit.LayerIntragrationTests</RootNamespace>
+    <AssemblyName>NUnit.LayerIntragrationTests</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.2.0.4\lib\netstandard2.0\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.Contrib.1.60.1\lib\net451\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.SimpleCRUD, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.SimpleCRUD.2.2.0.1\lib\netstandard2.0\Dapper.SimpleCRUD.dll</HintPath>
+    </Reference>
+    <Reference Include="DapperExtensions, Version=1.6.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DapperExtensions.1.6.3\lib\net45\DapperExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationArea\ApplicationConfigurationArea\BL_ApplicationConfigurationTests.cs" />
+    <Compile Include="ApplicationArea\ApplicationConfigurationArea\NonPersistentApplicaitonConfigurationTests.cs" />
+    <Compile Include="ApplicationArea\ApplicationConfigurationArea\PersistentApplicationConfigurationTests.cs" />
+    <Compile Include="ApplicationArea\FilesArea\BL_FilesTests.cs" />
+    <Compile Include="ApplicationArea\FilesArea\NonPersistentFilesTests.cs" />
+    <Compile Include="ApplicationArea\FilesArea\PersistentFilesTest.cs" />
+    <Compile Include="ApplicationArea\RolesArea\BL_RoleTests.cs" />
+    <Compile Include="ApplicationArea\RolesArea\NonPersistentRoleTests.cs" />
+    <Compile Include="ApplicationArea\RolesArea\PersistentRoleTests.cs" />
+    <Compile Include="ContactArea\Contact\BL_ContactTests.cs" />
+    <Compile Include="ContactArea\Contact\NonPersistentContactTests.cs" />
+    <Compile Include="ContactArea\Contact\PersistentContactTests.cs" />
+    <Compile Include="ContactArea\Email\BL_EmailTests.cs" />
+    <Compile Include="ContactArea\Email\NonPersistentEmailTests.cs" />
+    <Compile Include="ContactArea\Email\PersistentEmailTests.cs" />
+    <Compile Include="ContactArea\PhoneNumberType\BL_PhoneNumberTypeTests.cs" />
+    <Compile Include="ContactArea\PhoneNumberType\NonPersistentPhoneNumberTypeTests.cs" />
+    <Compile Include="ContactArea\PhoneNumberType\PersistentPhoneNumberTypeTests.cs" />
+    <Compile Include="ContactArea\PhoneNumber\BL_PhoneNumberTests.cs" />
+    <Compile Include="ContactArea\PhoneNumber\NonPersistentPhoneNumberTests.cs" />
+    <Compile Include="ContactArea\PhoneNumber\PersistentPhoneNumberTests.cs" />
+    <Compile Include="ContactArea\SnalMailAddress\BL_SnailMailAddressTests.cs" />
+    <Compile Include="ContactArea\SnalMailAddress\NonPersistentSnailMailTests.cs" />
+    <Compile Include="ContactArea\SnalMailAddress\PersistentSnailMailAddressTests.cs" />
+    <Compile Include="OrderInvoiceArea\CustomItemAttribute\BL_CustomItemAttributeTests.cs" />
+    <Compile Include="OrderInvoiceArea\CustomItemAttribute\NonPersistentCustomItemAttributeTests.cs" />
+    <Compile Include="OrderInvoiceArea\CustomItemAttribute\PersistentCustomItemAttributeTests.cs" />
+    <Compile Include="OrderInvoiceArea\CustomItemOptionAttribute\BL_CustomItemOptionAttributeTests.cs" />
+    <Compile Include="OrderInvoiceArea\CustomItemOptionAttribute\NonPersistentCustomItemOptionAttributeTests.cs" />
+    <Compile Include="OrderInvoiceArea\CustomItemOptionAttribute\PersistentCustomItemOptionAttributeTests.cs" />
+    <Compile Include="OrderInvoiceArea\CustomItemOption\BL_CustomItemOptionTests.cs" />
+    <Compile Include="OrderInvoiceArea\CustomItemOption\NonPersistentCustomItemOptionTests.cs" />
+    <Compile Include="OrderInvoiceArea\CustomItemOption\PersistentCustomItemOptionTests.cs" />
+    <Compile Include="OrderInvoiceArea\OrderInvoice\BL_OrderInvoiceTests.cs" />
+    <Compile Include="OrderInvoiceArea\OrderInvoice\NonPersistentOrderInvoiceTests.cs" />
+    <Compile Include="OrderInvoiceArea\OrderInvoice\PersistentOrderInvoiceTests.cs" />
+    <Compile Include="OrderInvoiceArea\OrderItem\BL_OrderItemTests.cs" />
+    <Compile Include="OrderInvoiceArea\OrderItem\NonPersistentOrderItemTests.cs" />
+    <Compile Include="OrderInvoiceArea\OrderItem\PersistentOrderItemTests.cs" />
+    <Compile Include="PeopleArea\Customer\BL_CustomerTests.cs" />
+    <Compile Include="PeopleArea\Customer\NonPersistentCustomerTests.cs" />
+    <Compile Include="PeopleArea\Customer\PersistentCustomerTests.cs" />
+    <Compile Include="PeopleArea\Employee\BL_EmployeeTests.cs" />
+    <Compile Include="PeopleArea\Employee\NonPersistentEmployeeTests.cs" />
+    <Compile Include="PeopleArea\Employee\PersistentEmployeeTests.cs" />
+    <Compile Include="PeopleArea\User\BL_UserTests.cs" />
+    <Compile Include="PeopleArea\User\NonPersistentUserTests.cs" />
+    <Compile Include="PeopleArea\User\PersistentUserTests.cs" />
+    <Compile Include="ProductArea\AttributeValues\NonPersistentOptionAttriValueTests.cs" />
+    <Compile Include="ProductArea\AttributeValues\NonPersistentProdAttriValueTests.cs" />
+    <Compile Include="ProductArea\Attribute\BL_AttributeTests.cs" />
+    <Compile Include="ProductArea\Attribute\NonPersistentAttributeTests.cs" />
+    <Compile Include="ProductArea\Attribute\PersistentAttributeTests.cs" />
+    <Compile Include="ProductArea\PredefinedOption\BL_PredefinedOptionTests.cs" />
+    <Compile Include="ProductArea\PredefinedOption\NonPersistentPredefinedOptionTests.cs" />
+    <Compile Include="ProductArea\PredefinedOption\PersistentPredefinedOptionTests.cs" />
+    <Compile Include="ProductArea\PredefinedProduct\BL_PredefinedProductTests.cs" />
+    <Compile Include="ProductArea\PredefinedProduct\NonPersistentPredefinedProductTests.cs" />
+    <Compile Include="ProductArea\PredefinedProduct\PersistentPredefinedProductTests.cs" />
+    <Compile Include="ProductArea\Price\NonPersistentProductOptionPriceTest.cs" />
+    <Compile Include="ProductArea\ProductOption\BL_ProductOptionTests.cs" />
+    <Compile Include="ProductArea\ProductOption\NonPersistentProductOptionTests.cs" />
+    <Compile Include="ProductArea\ProductOption\PersistentProductOptionTests.cs" />
+    <Compile Include="ProductArea\Product\BL_ProductTests.cs" />
+    <Compile Include="ProductArea\Product\NonPersistentProductTests.cs" />
+    <Compile Include="ProductArea\Product\PersistentProductTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bussiness\OrderInvoice_BL\OrderInvoice_BL.csproj">
+      <Project>{7579e26c-9fb9-4902-869b-8ab25f39f290}</Project>
+      <Name>OrderInvoice_BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CompositionRoot\CompositionRoot.csproj">
+      <Project>{e68200f0-8973-4807-9488-29c0321002ce}</Project>
+      <Name>CompositionRoot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CrossCutting\Exceptions\Exceptions.csproj">
+      <Project>{9869597b-36c2-4343-9e03-8d473e946d8d}</Project>
+      <Name>Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CrossCutting\OrderInvoice_Interfaces\OrderInvoice_Interfaces.csproj">
+      <Project>{654bf827-35b4-4eba-8cb7-134b4d4a8d6e}</Project>
+      <Name>OrderInvoice_Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CrossCutting\Utilites\Utilites.csproj">
+      <Project>{54c9916f-3248-437c-bdee-88ed68ddb14f}</Project>
+      <Name>Utilites</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\OrderInvoice_DL\OrderInvoice_DL.csproj">
+      <Project>{d467bbd9-c52c-4420-89cb-18282a0c9fd2}</Project>
+      <Name>OrderInvoice_DL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\NUnit.3.11.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\NUnit.3.11.0\build\NUnit.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.16.0" />
+    <PackageReference Include="NUnit" Version="3.13.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bussiness\OrderInvoice_BL\OrderInvoice_BL.csproj" />
+    <ProjectReference Include="..\..\CrossCutting\OrderInvoice_Interfaces\OrderInvoice_Interfaces.csproj" />
+    <ProjectReference Include="..\..\CrossCutting\Utilites\Utilites.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="025b0c8a-0f08-4f10-889e-e22b1ab28b42" ChangeDateTime="05/03/2017 02:48:33">
+    <Property Name="ElementName" Value="[dbo].[MTMOptionAttributes].[optionObjid]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[MTMOptionAttributes]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="mtmOptionObjid" />
+  </Operation>
+</Operations>

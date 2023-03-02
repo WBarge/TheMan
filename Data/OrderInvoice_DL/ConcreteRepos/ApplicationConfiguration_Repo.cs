@@ -1,0 +1,78 @@
+using System.Collections.Generic;
+using System.Linq;
+using OrderInvoice_Interfaces;
+using OrderInvoice_Interfaces.DB_DTOs;
+using OrderInvoice_DL.ConcretePocos;
+
+namespace OrderInvoice_DL.ConcreteRepos
+{
+    /// <summary>
+    /// Represents a repository for the ApplicationConfiguration table.
+    /// NOTE:	Basic Gets, Inserts and Updates are handled by the base class.
+	///			Extend this class to add any custom gets.
+    /// </summary>
+    internal class ApplicationConfigurationRepo : GenericRepository<ApplicationConfiguration> , IGenericRepository<IApplicationConfiguration>
+    {
+		public ApplicationConfigurationRepo (IConnectionFactory connectionFactory, Queue<QueueItem> queue,IPrimaryKeyRetriever primaryKeyRetriever) : base(connectionFactory,queue,primaryKeyRetriever) { }
+
+		public new IApplicationConfiguration Create()
+        {
+            return base.Create();
+        }
+
+		public new IApplicationConfiguration Get(int id)
+		{
+			return base.Get(id);
+		}
+
+        public new IQueryable<IApplicationConfiguration> GetAll()
+        {
+            return base.GetAll();
+        }
+
+		public IEnumerable<IApplicationConfiguration> GetPaged(int pageNumber,int itemsPerPage)
+        {
+            return base.GetPaged(pageNumber, itemsPerPage, null, null);
+        }
+
+
+        public void Insert(IApplicationConfiguration obj)
+        {
+            base.Insert((ApplicationConfiguration)obj);
+        }
+
+        public void Insert(IEnumerable<IApplicationConfiguration> entities)
+        {
+			foreach (IApplicationConfiguration entity in entities)
+			{
+				Insert(entity);
+			}
+        }
+
+        public void Update(IApplicationConfiguration obj)
+        {
+            base.Update((ApplicationConfiguration)obj);
+        }
+
+        public void Update(IEnumerable<IApplicationConfiguration> entities)
+        {
+			foreach (IApplicationConfiguration entity in entities)
+			{
+				Update(entity);
+			}
+        }
+
+        public void Delete(IApplicationConfiguration entity)
+        {
+            base.Delete((ApplicationConfiguration)entity);
+        }
+
+        public void Delete(IEnumerable<IApplicationConfiguration> entities)
+        {
+			foreach (IApplicationConfiguration entity in entities)
+			{
+				Delete(entity);
+			}
+        }
+    }
+}

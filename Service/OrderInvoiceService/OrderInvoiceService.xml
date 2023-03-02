@@ -1,0 +1,2204 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OrderInvoiceService</name>
+    </assembly>
+    <members>
+        <member name="T:OrderInvoiceService.Controllers.Customer.CustomerController">
+            <summary>
+            Class CustomerController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.Customer.CustomerController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.Customer.CustomerController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.Customer.CustomerController"/> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.Customer.CustomerController.SetCustomer(OrderInvoiceService.Models.API.CustomerModel)">
+            <summary>
+            saves the customer.
+            </summary>
+            <param name="customer">The customer.</param>
+            <returns>Task.</returns>
+            <exception cref="T:Exceptions.DataException">The customer Id is invalid
+            or
+            The customer Id is invalid
+            or
+            The customer Id is invalid</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.Customer.CustomersController">
+            <summary>
+            Class CustomersController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.Customer.CustomersController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.Customer.CustomersController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.Customer.CustomersController"/> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.Customer.CustomersController.GetCustomers">
+            <summary>
+            Gets the customers.
+            </summary>
+            <returns>Task&lt;JsonResult&gt;.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.Customer.PhoneNumberTypesController">
+            <summary>
+            Class PhoneNumberTypesController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.Customer.PhoneNumberTypesController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.Customer.PhoneNumberTypesController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.Customer.CustomerController" /> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.Customer.PhoneNumberTypesController.GetPhoneNumberTypes">
+            <summary>
+            Gets the phone number types available in the system.
+            </summary>
+            <returns>System.Threading.Tasks.Task&lt;Microsoft.AspNetCore.Mvc.JsonResult&gt;.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.Customer.StatesController">
+            <summary>
+            Class StatesController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.Customer.StatesController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.Customer.StatesController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.Customer.StatesController"/> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.Customer.StatesController.GetStates">
+            <summary>Gets the states for the USA.</summary>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.ProductConfiguration.AttributeController">
+            <summary>
+            Class AttributeController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.ProductConfiguration.AttributeController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.AttributeController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.ProductConfiguration.AttributeController" /> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.AttributeController.Post(OrderInvoiceService.Models.API.Products.AttributeModel)">
+            <summary>
+            Saves the attribute to the systems
+            This endpoint will create or update the attribute based on the id property
+            </summary>
+            <param name="incomingAttributeModel">The incoming attribute model.</param>
+            <returns>ActionResult.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.ProductConfiguration.AttributesController">
+            <summary>
+            Class AttributesController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.ProductConfiguration.AttributesController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.AttributesController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.ProductConfiguration.AttributesController" /> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.AttributesController.Get">
+            <summary>
+            Gets the attributes in the system
+            </summary>
+            <returns>JsonResult.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.ProductConfiguration.ProductController">
+            <summary>
+            Class ProductController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.ProductConfiguration.ProductController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.ProductConfiguration.ProductController" /> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductController.Get(System.Int32)">
+            <summary>
+            Gets the specified product
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>JsonResult.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductController.Post(OrderInvoiceService.Models.API.Products.ProductModel)">
+            <summary>
+            Will create or update a product with this endpoint
+            </summary>
+            <param name="incomingProductModel">The incoming product model.</param>
+            <returns>ActionResult.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductController.GetOptionsForProduct(System.Int32)">
+            <summary>
+            Gets the options for a product.
+            </summary>
+            <param name="id">The Id of the product to get the options for.</param>
+            <returns>JsonResult.</returns>
+            <exception cref="T:Exceptions.InvalidParameterException">Invalid Id</exception>
+            <exception cref="T:Exceptions.DataException">Invalid Product</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductController.SetProductOptionsForProduct(OrderInvoiceService.Models.API.Products.Requests.ProductOptionsForProductRequest)">
+            <summary>
+            Saves the options to the product
+            This endpoint will reset the relationships between the product and the options
+            </summary>
+            <param name="incomingRequestObject">The incoming request object.</param>
+            <returns>ActionResult.</returns>
+            <exception cref="T:System.Exception">The Product cannot be a newly created Product
+            or
+            The production options cannot be newly created</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductController.GetAttributesForProduct(System.Int32)">
+            <summary>
+            Gets the attributes for a product.
+            </summary>
+            <param name="id">The Id of the product to get the attributes for.</param>
+            <returns>JsonResult.</returns>
+            <exception cref="T:Exceptions.InvalidParameterException">Invalid Id</exception>
+            <exception cref="T:Exceptions.DataException">Invalid Product</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductController.SetAttributesForProduct(OrderInvoiceService.Models.API.Products.Requests.AttributesForProductRequest)">
+            <summary>
+            Saves the attributes for product.
+            This endpoint will reset the relationships between the product and the attributes
+            </summary>
+            <param name="incomingRequestObject">The incoming request object.</param>
+            <returns>ActionResult.</returns>
+            <exception cref="T:System.Exception">The Product cannot be a newly created Product
+            or
+            The attributes cannot be newly created</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductController.GetAttributesForProductOption(System.Int32,System.Int32)">
+            <summary>
+            Gets the attributes for an option.
+            </summary>
+            <param name="productId">The product identifier.</param>
+            <param name="productOptionId">The product option identifier.</param>
+            <returns>JsonResult.</returns>
+            <exception cref="T:Exceptions.InvalidParameterException">The Product Id is invalid
+            or
+            The Product option Id is invalid</exception>
+            <exception cref="T:Exceptions.DataException">Invalid Product
+            or
+            Invalid Product option</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductController.GetAttributeValuesForProduct(System.Int32,System.Int32)">
+            <summary>
+            Gets the attribute values for a product.
+            </summary>
+            <param name="productId">The product identifier.</param>
+            <param name="attributeId">The attribute identifier.</param>
+            <returns>JsonResult.</returns>
+            <exception cref="T:Exceptions.InvalidParameterException">The Product Id is invalid
+            or
+            The attribute Id is invalid</exception>
+            <exception cref="T:Exceptions.DataException">Invalid Product</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductController.SetAttributeValuesForProduct(OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductRequest)">
+            <summary>
+            Save the attribute values for a product.
+            This endpoint will reset the relationships between the product and the attribute values
+            </summary>
+            <param name="incomingRequestObject">The incoming request object.</param>
+            <returns>ActionResult.</returns>
+            <exception cref="T:System.Exception">The Product cannot be a newly created Product</exception>
+            <exception cref="T:Exceptions.DataException">The attribute Id is invalid</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductController.GetAttributeValuesForProductOption(System.String,System.String,System.String)">
+            <summary>Gets the attribute values for product option.</summary>
+            <param name="productId">The product identifier.</param>
+            <param name="productOptionId">The product option identifier.</param>
+            <param name="attributeId">The attribute identifier.</param>
+            <returns>JsonResult.</returns>
+            <exception cref="T:Exceptions.DataException">The Product Id is invalid
+            or
+            The Product option Id is invalid
+            or
+            The attribute Id is invalid
+            or
+            Invalid Product
+            or
+            Invalid Product Option</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionController">
+            <summary>
+            Class ProductOptionController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionController" /> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionController.Post(OrderInvoiceService.Models.API.Products.ProductOptionModel)">
+            <summary>
+            Saves the option to the systems
+            This endpoint will create or update the option based on the id property
+            </summary>
+            <param name="incomingProductOptionModel">The incoming product option model.</param>
+            <returns>ActionResult.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionController.SetAttributesForProductOption(OrderInvoiceService.Models.API.Products.Requests.AttributesForProductOptionRequest)">
+            <summary>
+            Sets the attributes for the option.
+            This endpoint will reset the relationships between the option and the attributes
+            </summary>
+            <param name="incomingRequestObject">The incoming request object.</param>
+            <returns>ActionResult.</returns>
+            <exception cref="T:System.Exception">The Product cannot be a newly created Product
+            or
+            The Product is not a valid Product option for the given Product
+            or
+            The attributes cannot be newly created</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionController.SetAttributeValuesForProductOption(OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductOptionRequest)">
+            <summary>Sets the attribute values for product option.</summary>
+            <param name="incomingRequestObject">The incoming request object.</param>
+            <returns>ActionResult.</returns>
+            <exception cref="T:System.Exception">The Product cannot be a newly created Product</exception>
+            <exception cref="T:System.Data.DataException">The attribute Id is invalid
+            or
+            The Product option Id is invalid
+            or
+            The attribute Id is invalid
+            or
+            The attribute Id is invalid</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionsController">
+            <summary>
+            Class ProductOptionsController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionsController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionsController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionsController" /> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductOptionsController.Get">
+            <summary>
+            Gets all options in the system
+            </summary>
+            <returns>JsonResult.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.ProductConfiguration.ProductsController">
+            <summary>
+            Class ProductsController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.ProductConfiguration.ProductsController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductsController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.ProductConfiguration.ProductsController" /> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductConfiguration.ProductsController.Get">
+            <summary>
+            Gets all products in the system
+            </summary>
+            <returns>JsonResult.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.ProductPackaging.PackagedProductsController">
+            <summary>
+            Class PackagedProductsController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.ProductPackaging.PackagedProductsController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPackaging.PackagedProductsController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.ProductConfiguration.ProductPricingController" /> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPackaging.PackagedProductsController.GetPackagedProducts">
+            <summary>
+            Gets the packaged products.
+            </summary>
+            <returns>JsonResult.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.ProductPricing.ProductOptionPricingController">
+            <summary>
+            Class ProductOptionPricingController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.ProductPricing.ProductOptionPricingController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPricing.ProductOptionPricingController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.ProductConfiguration.ProductPricingController" /> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPricing.ProductOptionPricingController.GetPricingFromProductOptions">
+            <summary>Gets the pricing from product options.</summary>
+            <returns>JsonResult.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPricing.ProductOptionPricingController.GetProductOptionsWithNoPrices">
+            <summary>Gets the product options with no prices.</summary>
+            <returns>JsonResult.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPricing.ProductOptionPricingController.CreateInitialOptionPrice(OrderInvoiceService.Models.API.Products.Requests.InitialOptionPriceRequest)">
+            <summary>Creates the initial option price.</summary>
+            <param name="incomingOptionPriceRequest">The incoming option price request.</param>
+            <returns>ActionResult.</returns>
+            <exception cref="T:System.Exception">The Product cannot be a newly created Product</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPricing.ProductOptionPricingController.SetProductOptionPrice(OrderInvoiceService.Models.API.Products.Requests.ProductOptionPriceRequest)">
+            <summary>Sets the product option price.</summary>
+            <param name="incomingProductPriceRequest">The incoming product price request.</param>
+            <returns>ActionResult.</returns>
+            <exception cref="T:System.Exception">The Product Option cannot be a newly created Option</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.ProductPricing.ProductPricingController">
+            <summary>
+            Class ProductPricingController.
+            Implements the <see cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.ProductPricing.ProductPricingController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPricing.ProductPricingController.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.ProductPricing.ProductPricingController" /> class.
+            </summary>
+            <param name="repo">The repo.</param>
+            <exception cref="T:System.ArgumentNullException">repo</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPricing.ProductPricingController.GetPricingForProducts">
+            <summary>
+            Gets the pricing for products.
+            </summary>
+            <returns>JsonResult.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPricing.ProductPricingController.GetProductsWithNoPrices">
+            <summary>Gets the products with no prices.</summary>
+            <returns>JsonResult.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPricing.ProductPricingController.CreateInitialProductPrice(OrderInvoiceService.Models.API.Products.Requests.InitialProductPriceRequest)">
+            <summary>Creates the initial product price.</summary>
+            <param name="incomingProductPriceRequest">The incoming product price request.</param>
+            <returns>ActionResult.</returns>
+            <exception cref="T:System.Exception">The Product cannot be a newly created Product</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.ProductPricing.ProductPricingController.SetProductPrice(OrderInvoiceService.Models.API.Products.Requests.ProductPriceRequest)">
+            <summary>Sets the product price.</summary>
+            <param name="incomingProductPriceRequest">The incoming product price request.</param>
+            <returns>ActionResult.</returns>
+            <exception cref="T:System.Exception">The Product cannot be a newly created Product</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Controllers.SystemDataController">
+            <summary>
+            Class SystemDataController.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.Controller" />
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.SystemDataController._environment">
+            <summary>
+            The environment
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Controllers.SystemDataController._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Controllers.SystemDataController" /> class.
+            </summary>
+            <param name="environment">The environment.</param>
+            <param name="repository">The repository.</param>
+            <exception cref="T:System.ArgumentNullException">
+            environment
+            or
+            repository
+            </exception>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.GetServiceLocation">
+            <summary>
+            Gets the location of the services to be used by the application
+            </summary>
+            <returns>JsonResult.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.BannerFileUpload(Microsoft.AspNetCore.Http.IFormCollection)">
+            <summary>
+            Upload a file to be used as a banner
+            </summary>
+            <param name="uploadedFiles">The uploaded files.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.GetBannerFiles">
+            <summary>
+            Gets the list of possible banner files.
+            </summary>
+            <returns>Task&lt;JsonResult&gt;.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.FooterFileUpload(Microsoft.AspNetCore.Http.IFormCollection)">
+            <summary>
+            Upload a file to be used as a Footer
+            </summary>
+            <param name="uploadedFiles">The uploaded files.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.GetFooterFiles">
+            <summary>
+            Gets the list of possible footer files.
+            </summary>
+            <returns>Task&lt;JsonResult&gt;.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.GetSystemConfiguration">
+            <summary>
+            Gets the system configuration.
+            </summary>
+            <returns>Task&lt;JsonResult&gt;.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.SetSystemConfiguration(OrderInvoiceService.Models.API.SystemConfigurationModel)">
+            <summary>
+            Sets the system configuration.
+            </summary>
+            <param name="systemConfiguration">The system configuration.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.GetUsers">
+            <summary>
+            Gets the users.
+            </summary>
+            <returns>Task&lt;JsonResult&gt;.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.AddNewUser(OrderInvoiceService.Models.API.NewUserModel)">
+            <summary>
+            Adds the new user.
+            </summary>
+            <param name="newUser">The new user.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.GetRoles">
+            <summary>
+            Gets the roles defined in the system.
+            </summary>
+            <returns>Task&lt;JsonResult&gt;.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Controllers.SystemDataController.SetUserRoles(OrderInvoiceService.Models.API.AdjustingUserRolesModel)">
+            <summary>
+            Sets the user roles.
+            </summary>
+            <param name="usersRoles">The users roles.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Assets">
+            <summary>
+            Class Assets.
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Assets._applicationRoot">
+            <summary>
+            The application root
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Assets._assetsPath">
+            <summary>
+            The assets path
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Assets.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Logic.Assets" /> class.
+            </summary>
+            <param name="rootPath">The root path.</param>
+        </member>
+        <member name="P:OrderInvoiceService.Logic.Assets.IsAssetsFolderPresent">
+            <summary>
+            Gets a value indicating whether this instance is assets folder present.
+            </summary>
+            <value><c>true</c> if this instance is assets folder present; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Assets.CreateFolder">
+            <summary>
+            Creates the folder.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Assets.PushToLocation(System.String,System.Byte[])">
+            <summary>
+            Pushes to location.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="content">The content.</param>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.ConfigurationManager">
+            <summary>
+            ConfigurationManager - helps manage configuration information for the system.
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.ConfigurationManager.ConfigurationTypeForUi">
+            <summary>
+            The configuration type for UI
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.ConfigurationManager._repository">
+            <summary>
+            The repository
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.ConfigurationManager.#ctor(OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Logic.ConfigurationManager" /> class.
+            </summary>
+            <param name="repository">The repository.</param>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.ConfigurationManager.GetConfiguration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <returns>SystemConfigurationModel.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.ConfigurationManager.SetConfiguration(OrderInvoiceService.Models.API.SystemConfigurationModel)">
+            <summary>
+            Sets the configuration.
+            </summary>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.ConfigurationManager.ValidateModel(OrderInvoiceService.Models.API.SystemConfigurationModel)">
+            <summary>
+            Validates the model.
+            </summary>
+            <param name="config">The configuration.</param>
+            <exception cref="T:System.Data.DataException">The next customer cannot be a negative number.</exception>
+            <exception cref="T:System.Data.DataException">The next customer cannot be a negative number.</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Constants">
+            <summary>
+            Class Constants.
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Constants.SecuritySchemeName">
+            <summary>
+            The security scheme name
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Constants.AdminPolicyName">
+            <summary>
+            The admin policy name
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Constants.AllUsersPolicyName">
+            <summary>
+            All users policy name
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Constants.AdminRoleName">
+            <summary>
+            The admin role name
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Constants.StandardUserRoleName">
+            <summary>
+            The standard user role name
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Constants.AssestLocation">
+            <summary>
+            The assest location
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Constants.BannerFileName">
+            <summary>
+            The banner file name
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Constants.FooterFileName">
+            <summary>
+            The footer file name
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Constants.DefaultPassword">
+            <summary>
+            The default password
+            </summary>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.CustomerHelper">
+            <summary>
+            Class CustomerHelper - helper methods for managing customers
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.CustomerHelper.GetNextCustomerNumber(OrderInvoiceService.Logic.ConfigurationManager)">
+            <summary>
+            Gets the next customer number.
+            </summary>
+            <param name="cm">The cm.</param>
+            <returns>System.Int32.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Transformers.AttributeTransformer">
+            <summary>
+            Class AttributeTransformer.
+            Class for mapping between service side models and client side models
+            This one handles the attribute
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.AttributeTransformer.GetClientModelFromBo(OrderInvoice_BL.Products.Attribute)">
+            <summary>
+            transforms the Attribute bo to the client model.
+            </summary>
+            <param name="bo">The Attribute bo.</param>
+            <returns>AttributeModel.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.AttributeTransformer.GetBoFromClientModel(OrderInvoiceService.Models.API.Products.AttributeModel,OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            transforms the client bo to an instance of the bo
+            </summary>
+            <param name="attributeModel">The Attribute client model.</param>
+            <param name="repository">The repository.</param>
+            <returns>Attribute</returns>
+            <exception cref="T:Exceptions.DataException">The attribute Id is invalid</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Transformers.PredefinedProductOptionTransformer">
+            <summary>
+            Class PredefinedProductOptionTransformer.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.PredefinedProductOptionTransformer.GetClientModelFromBo(OrderInvoice_BL.Products.PredefinedOption)">
+            <summary>
+            transforms the PredefinedOption bo to the client model.
+            </summary>
+            <param name="bo">The bo.</param>
+            <returns>ProductModel.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.PredefinedProductOptionTransformer.GetBoFromClientModel(OrderInvoiceService.Models.API.Products.PackagedProductOptionModel,OrderInvoice_BL.Products.PredefinedProduct,OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            transforms the client bo to an instance of the bo
+            </summary>
+            <param name="optionModel">The option model.</param>
+            <param name="predefinedProduct">The predefined product.</param>
+            <param name="repository">The repository.</param>
+            <returns>Product.</returns>
+            <exception cref="T:Exceptions.DataException">The Product Id is invalid</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Transformers.PredefinedProductTransformer">
+            <summary>
+            Class PredefinedProductTransformer.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.PredefinedProductTransformer.GetClientModelFromBo(OrderInvoice_BL.Products.PredefinedProduct)">
+            <summary>
+            transforms the PredefinedProduct bo to the client model.
+            </summary>
+            <param name="bo">The bo.</param>
+            <returns>ProductModel.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.PredefinedProductTransformer.GetBoFromClientModel(OrderInvoiceService.Models.API.Products.PackagedProductModel,OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            transforms the client bo to an instance of the bo
+            </summary>
+            <param name="productModel">The Product model.</param>
+            <param name="repository">The repository.</param>
+            <returns>Product.</returns>
+            <exception cref="T:Exceptions.DataException">The Product Id is invalid</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Transformers.ProductAttributeValueTransformer">
+            <summary>
+            Class ProductAttributeValueTransformer.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductAttributeValueTransformer.GetClientModelFromBo(OrderInvoice_BL.Products.ProductAttributeValue)">
+            <summary>
+            transforms the Attribute Value bo to the client model.
+            </summary>
+            <param name="bo">The Attribute bo.</param>
+            <returns>AttributeModel.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductAttributeValueTransformer.GetBoFromClientModel(OrderInvoiceService.Models.API.Products.AttributeValueModel,OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            transforms the client bo to an instance of the bo
+            </summary>
+            <param name="attributeModel">The Attribute client model.</param>
+            <param name="repository">The repository.</param>
+            <returns>Attribute</returns>
+            <exception cref="T:Exceptions.DataException">The attribute Id is invalid</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Transformers.ProductOptionAttributeValueTransformer">
+            <summary>
+            Class ProductOptionAttributeValueTransformer.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductOptionAttributeValueTransformer.GetClientModelFromBo(OrderInvoice_BL.Products.OptionAttributeValue)">
+            <summary>
+            transforms the Attribute Value bo to the client model.
+            </summary>
+            <param name="bo">The Attribute bo.</param>
+            <returns>AttributeModel.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductOptionAttributeValueTransformer.GetBoFromClientModel(OrderInvoiceService.Models.API.Products.AttributeValueModel,OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            transforms the client bo to an instance of the bo
+            </summary>
+            <param name="attributeModel">The Attribute client model.</param>
+            <param name="repository">The repository.</param>
+            <returns>Attribute</returns>
+            <exception cref="T:Exceptions.DataException">The attribute Id is invalid</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Transformers.ProductOptionPriceTransfomer">
+            <summary>
+            Class ProductOptionPriceTransfomer.
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Transformers.ProductOptionPriceTransfomer.DATETIME_MAXVALUE">
+            <summary>
+            The datetime maxvalue
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductOptionPriceTransfomer.GetClientModelFromBo(OrderInvoice_BL.Products.OptionPrice)">
+            <summary>
+            Gets the client model from bo.
+            </summary>
+            <param name="bo">The bo.</param>
+            <returns>PriceModel.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductOptionPriceTransfomer.GetBoFromClientModel(OrderInvoice_BL.Products.ProductOption,OrderInvoiceService.Models.API.Products.PriceModel,OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            transforms the client bo to an instance of the bo
+            </summary>
+            <param name="productOptionPricesAreFor">The Product Option prices are for.</param>
+            <param name="priceModel">The Price model.</param>
+            <param name="repository">The repository.</param>
+            <returns>ProductPrice.</returns>
+            <exception cref="T:Exceptions.DataException">The Product Id is invalid</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Transformers.ProductOptionTransformer">
+            <summary>
+            Class ProductOptionTransformer.
+            Class for mapping between service side models and client side models
+            This one handles the Product option
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductOptionTransformer.GetClientModelFromBo(OrderInvoice_BL.Products.ProductOption)">
+            <summary>
+            transforms the Product option bo to the client model.
+            </summary>
+            <param name="bo">The bo.</param>
+            <returns>ProductOptionModel.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductOptionTransformer.GetBoFromClientModel(OrderInvoiceService.Models.API.Products.ProductOptionModel,OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            transforms the client bo to an instance of the bo
+            </summary>
+            <param name="productOptionModel">The Product option model.</param>
+            <param name="repository">The repository.</param>
+            <returns>Product.</returns>
+            <exception cref="T:Exceptions.DataException">The Product option Id is invalid</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Transformers.ProductPriceTransformer">
+            <summary>
+            Class ProductPriceTransformer.
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Logic.Transformers.ProductPriceTransformer.DATETIME_MAXVALUE">
+            <summary>
+            The datetime maxvalue
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductPriceTransformer.GetClientModelFromBo(OrderInvoice_BL.Products.ProductPrice)">
+            <summary>
+            Gets the client model from bo.
+            </summary>
+            <param name="bo">The bo.</param>
+            <returns>PriceModel.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductPriceTransformer.GetBoFromClientModel(OrderInvoice_BL.Products.Product,OrderInvoiceService.Models.API.Products.PriceModel,OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            transforms the client bo to an instance of the bo
+            </summary>
+            <param name="productPricesAreFor">The Product prices are for.</param>
+            <param name="priceModel">The Price model.</param>
+            <param name="repository">The repository.</param>
+            <returns>ProductPrice.</returns>
+            <exception cref="T:Exceptions.DataException">The Product Id is invalid</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Transformers.ProductTransformer">
+            <summary>
+            Class ProductTransformer.
+            Class for mapping between service side models and client side models
+            This one handles the Product
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductTransformer.GetClientModelFromBo(OrderInvoice_BL.Products.Product)">
+            <summary>
+            transforms the Product bo to the client model.
+            </summary>
+            <param name="bo">The bo.</param>
+            <returns>ProductModel.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Transformers.ProductTransformer.GetBoFromClientModel(OrderInvoiceService.Models.API.Products.ProductModel,OrderInvoice_Interfaces.RepositoryInterfaces.IRepository)">
+            <summary>
+            transforms the client bo to an instance of the bo
+            </summary>
+            <param name="productModel">The Product model.</param>
+            <param name="repository">The repository.</param>
+            <returns>Product.</returns>
+            <exception cref="T:Exceptions.DataException">The Product Id is invalid</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.UIHelpers">
+            <summary>
+            Class UIHelpers.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.UIHelpers.CreateFileDropDownItem(System.String,System.String,System.String)">
+            <summary>
+            Creates the file drop down item to be used by the ngPrime drop-down control/tag on the client.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="id">The identifier.</param>
+            <param name="name">The name.</param>
+            <returns>DropDownItemModel.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.UIHelpers.ThrowInvalidParameterExceptionIfNull``1(``0)">
+            <summary>
+            Throws the invalid parameter exception if the passed in object is null.
+            Used to validate that parameters are not null.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj">The object.</param>
+            <exception cref="T:Exceptions.InvalidParameterException">Parameter is required for the {typeof(T).Name} parameter</exception>
+            <example>
+            public async Task SomeMethod([FromBody]ParameterType para)
+            {
+            UIHelpers.ThrowInvalidParameterExceptionIfNull(para);
+            ...
+            }
+            </example>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Validators.CustomerValidator">
+            <summary>
+            Class CustomerValidator.
+            Contains methods to validate customer data
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.CustomerValidator.ValidateCustomer(OrderInvoiceService.Models.API.CustomerModel)">
+            <summary>
+            Validates the customer.
+            </summary>
+            <param name="customer">The customer.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">First Name is required
+            or
+            Last Name is required
+            or
+            User Name is required
+            or
+            Billing address is required
+            or
+            Shipping address is required
+            or
+            Email address is required
+            or
+            Phone Number is required
+            or
+            Number Type is required</exception>
+            <exception cref="T:System.Exception">Fatal System Error- The customer number has to be numeric</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.CustomerValidator.ValidateAddress(OrderInvoiceService.Models.API.AddressModel,System.String)">
+            <summary>
+            Validates the address.
+            </summary>
+            <param name="address">The address.</param>
+            <param name="addressQualifier">The address qualifier.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">
+            </exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Validators.PredefinedProductValidator">
+            <summary>
+            Class PredefinedProductValidator.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.PredefinedProductValidator.ValidatePackagedProductModel(OrderInvoiceService.Models.API.Products.PackagedProductModel)">
+            <summary>
+            Validates the packaged product model.
+            </summary>
+            <param name="packagedProduct">The packaged product.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">The packaged product ID or the productID is required
+            or
+            The quantity is required</exception>
+            <exception cref="T:Exceptions.DataException">The quantity is not a valid integer</exception>
+        </member>
+        <member name="T:OrderInvoiceService.Logic.Validators.ProductValidator">
+            <summary>
+            Class holds validators to validate models related to products.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateProduct(OrderInvoiceService.Models.API.Products.ProductModel)">
+            <summary>
+            Validates the Product.
+            </summary>
+            <param name="product">The Product.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">
+            Name is required
+            or
+            Description is required
+            </exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateProductOption(OrderInvoiceService.Models.API.Products.ProductOptionModel)">
+            <summary>
+            Validates the Product option.
+            </summary>
+            <param name="productOption">The Product option.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">
+            Name is required
+            or
+            Description is required
+            </exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateAttribute(OrderInvoiceService.Models.API.Products.AttributeModel)">
+            <summary>
+            Validates the attribute.
+            </summary>
+            <param name="attribute">The attribute.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">
+            Name is required
+            or
+            Description is required
+            </exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateProductionOptionsForProductRequest(OrderInvoiceService.Models.API.Products.Requests.ProductOptionsForProductRequest)">
+            <summary>
+            Validates the request to set the production options for a Product
+            </summary>
+            <param name="request">The request.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">
+            The Product Id is required
+            or
+            At least one Product option Id is missing
+            </exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateAttributesForProductRequest(OrderInvoiceService.Models.API.Products.Requests.AttributesForProductRequest)">
+            <summary>
+            Validates the attributes for Product request.
+            </summary>
+            <param name="request">The request.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">The Product Id is required
+            or
+            At least one attribute Id is missing</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateAttributesForProductOptionRequest(OrderInvoiceService.Models.API.Products.Requests.AttributesForProductOptionRequest)">
+            <summary>
+            Validates the attributes for Product option request.
+            </summary>
+            <param name="request">The request.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">The Product Id is required
+            or
+            The Product option Id is required
+            or
+            At least one attribute Id is missing</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateAttributeValuesForProductRequest(OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductRequest)">
+            <summary>
+            Validates the attribute values for Product request.
+            </summary>
+            <param name="request">The request.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">The Product Id is required
+            or
+            The attribute Id is required
+            or
+            At least one attribute value is missing</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateAttributeValuesForProductOptionRequest(OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductOptionRequest)">
+            <summary>
+            Validates the attribute values for Product option request.
+            </summary>
+            <param name="request">The request.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">The Product Id is required
+            or
+            The Product option id is required
+            or
+            The attribute Id is required
+            or
+            At least one attribute value is missing</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateValuesForInitialProductPriceRequest(OrderInvoiceService.Models.API.Products.Requests.InitialProductPriceRequest)">
+            <summary>
+            Validates the values for initial Product Price request.
+            </summary>
+            <param name="request">The request.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">The Product Id is required
+            or
+            The initial Price has to be greater than .01</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateValuesForSetProductPrice(OrderInvoiceService.Models.API.Products.Requests.ProductPriceRequest)">
+            <summary>
+            Validates the values for set Product Price.
+            </summary>
+            <param name="request">The request.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">The Product Id is required
+            or
+            The Price is required
+            or
+            The date range the Price is valid for ie required
+            or
+            The Price is required. Set the formula or the flat Price.</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateValuesForInitialProductOptionPriceRequest(OrderInvoiceService.Models.API.Products.Requests.InitialOptionPriceRequest)">
+            <summary>
+            Validates the values for initial product option price request.
+            </summary>
+            <param name="request">The request.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">The Product Id is required
+            or
+            The initial Price has to be greater than .01</exception>
+        </member>
+        <member name="M:OrderInvoiceService.Logic.Validators.ProductValidator.ValidateValuesForSetProductOptionPrice(OrderInvoiceService.Models.API.Products.Requests.ProductOptionPriceRequest)">
+            <summary>
+            Validates the values for set product option price.
+            </summary>
+            <param name="request">The request.</param>
+            <exception cref="T:Exceptions.RequiredFieldException">
+            The Product Option Id is required
+            or
+            The Price is required. Set the flat Price.
+            </exception>
+        </member>
+        <member name="T:OrderInvoiceService.Middleware.UiExceptionHandler">
+            <summary>
+            Class UiExceptionHandler.
+            </summary>
+        </member>
+        <member name="F:OrderInvoiceService.Middleware.UiExceptionHandler._next">
+            <summary>
+            The next
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Middleware.UiExceptionHandler.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Middleware.UiExceptionHandler" /> class.
+            </summary>
+            <param name="next">The next.</param>
+        </member>
+        <member name="M:OrderInvoiceService.Middleware.UiExceptionHandler.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            called by the system as part of the request pipe-line
+            </summary>
+            <param name="context">The context.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:OrderInvoiceService.Middleware.UiExceptionHandler.BuildResponseBodyAsync(Microsoft.AspNetCore.Http.HttpContext,System.Exception)">
+            <summary>
+            build response body as an asynchronous operation.
+            </summary>
+            <param name="context">The context.</param>
+            <param name="x">The x.</param>
+            <returns>Task.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Middleware.UiExceptionHandlerExtensions">
+            <summary>
+            Class UiExceptionHandlerExtensions.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Middleware.UiExceptionHandlerExtensions.UseUIExceptionHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Uses the UI exception handler.
+            </summary>
+            <param name="builder">The builder.</param>
+            <returns>IApplicationBuilder.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.AddressModel">
+            <summary>
+            Class AddressModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.AddressModel.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.AddressModel.Address1">
+            <summary>
+            Gets or sets the address1.
+            </summary>
+            <value>The address1.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.AddressModel.Address2">
+            <summary>
+            Gets or sets the address2.
+            </summary>
+            <value>The address2.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.AddressModel.City">
+            <summary>
+            Gets or sets the city.
+            </summary>
+            <value>The city.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.AddressModel.StateValue">
+            <summary>
+            Gets or sets the state value.
+            </summary>
+            <value>The state value.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.AddressModel.Zip">
+            <summary>
+            Gets or sets the zip.
+            </summary>
+            <value>The zip.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.AdjustingUserRolesModel">
+            <summary>
+            Class AdjustingUserRolesModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.AdjustingUserRolesModel.UserId">
+            <summary>
+            Gets or sets the user identifier.
+            </summary>
+            <value>The user identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.AdjustingUserRolesModel.Roles">
+            <summary>
+            Gets or sets the roles.
+            </summary>
+            <value>The roles.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.ContactReadModel">
+            <summary>
+            Class ContactReadModel.
+            used to send contact data down to the client
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ContactReadModel.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ContactReadModel.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ContactReadModel.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>The last name.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.CustomerModel">
+            <summary>
+            Class CustomerModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>The last name.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.CustomerNumber">
+            <summary>
+            Gets or sets the customer number.
+            </summary>
+            <value>The customer number.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.UserName">
+            <summary>
+            Gets or sets the name of the user.
+            </summary>
+            <value>The name of the user.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+            <value>The password.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.Active">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:OrderInvoiceService.Models.API.CustomerModel"/> is active.
+            </summary>
+            <value><c>true</c> if active; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.ShippingIsSameAsBilling">
+            <summary>
+            Gets or sets a value indicating whether [shipping is same as billing].
+            </summary>
+            <value><c>true</c> if [shipping is same as billing]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.ShippingAddress">
+            <summary>
+            Gets or sets the shipping address.
+            </summary>
+            <value>The shipping address.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.BillingAddress">
+            <summary>
+            Gets or sets the billing address.
+            </summary>
+            <value>The billing address.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>The email.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.PhoneNumberTypeValue">
+            <summary>
+            Gets or sets the phone number type value.
+            </summary>
+            <value>The phone number type value.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.CustomerModel.PhoneNumber">
+            <summary>
+            Gets or sets the phone number.
+            </summary>
+            <value>The phone number.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.DropDownItemModel">
+            <summary>
+            Class DropDownItemModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.DropDownItemModel.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>The label.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.DropDownItemModel.Value">
+            <summary>
+            Gets or sets the value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.DropDownItemValue">
+            <summary>
+            Class DropDownItemValue.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.DropDownItemValue.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.DropDownItemValue.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>The label.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.DropDownItemValue.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.NewUserModel">
+            <summary>
+            Class NewUserModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.NewUserModel.UserName">
+            <summary>
+            Gets or sets the name of the user.
+            </summary>
+            <value>The name of the user.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.NewUserModel.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+            <value>The password.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.AttributeModel">
+            <summary>
+            Class AttributeModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.AttributeModel.id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.AttributeModel.name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.AttributeModel.description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.AttributeValueModel">
+            <summary>
+            Class AttributeValueModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.AttributeValueModel.id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.AttributeValueModel.valueName">
+            <summary>
+            Gets or sets the name of the value.
+            </summary>
+            <value>The name of the value.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.AttributeValueModel.description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.AttributeValueModel.isDefault">
+            <summary>
+            Gets or sets a value indicating whether this instance is default.
+            </summary>
+            <value><c>true</c> if this instance is default; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.PackagedProductDetailModel">
+            <summary>
+            Class PackagedProductDetailModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductDetailModel.attribute">
+            <summary>
+            Gets or sets the attribute.
+            </summary>
+            <value>The attribute.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductDetailModel.possibleValues">
+            <summary>
+            Gets or sets the possible values.
+            </summary>
+            <value>The possible values.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductDetailModel.attributeValue">
+            <summary>
+            Gets or sets the attribute value.
+            </summary>
+            <value>The attribute value.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.PackagedProductModel">
+            <summary>
+            Class PackagedProductModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductModel.id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductModel.productId">
+            <summary>
+            Gets or sets the product identifier.
+            </summary>
+            <value>The product identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductModel.description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductModel.price">
+            <summary>
+            Gets or sets the price.
+            </summary>
+            <value>The price.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductModel.quantity">
+            <summary>
+            Gets or sets the quantity.
+            </summary>
+            <value>The quantity.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductModel.details">
+            <summary>
+            Gets or sets the details.
+            </summary>
+            <value>The details.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductModel.options">
+            <summary>
+            Gets or sets the options.
+            </summary>
+            <value>The options.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.PackagedProductOptionDetailModel">
+            <summary>
+            Class PackagedProductOptionDetailModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductOptionDetailModel.attribute">
+            <summary>
+            Gets or sets the attribute.
+            </summary>
+            <value>The attribute.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductOptionDetailModel.possibleValues">
+            <summary>
+            Gets or sets the possible values.
+            </summary>
+            <value>The possible values.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductOptionDetailModel.attributeValue">
+            <summary>
+            Gets or sets the attribute value.
+            </summary>
+            <value>The attribute value.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.PackagedProductOptionModel">
+            <summary>
+            Class PackagedProductOptionModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductOptionModel.id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductOptionModel.optionId">
+            <summary>
+            Gets or sets the option identifier.
+            </summary>
+            <value>The option identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductOptionModel.description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PackagedProductOptionModel.details">
+            <summary>
+            Gets or sets the details.
+            </summary>
+            <value>The details.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.PriceModel">
+            <summary>
+            Class PriceModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PriceModel.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PriceModel.StartDateTimeString">
+            <summary>
+            Gets or sets the start date time string.
+            </summary>
+            <value>The start date time string.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PriceModel.EndDateTimeString">
+            <summary>
+            Gets or sets the end date time string.
+            </summary>
+            <value>The end date time string.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PriceModel.FlatPrice">
+            <summary>
+            Gets or sets the flat price.
+            </summary>
+            <value>The flat price.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PriceModel.FormulaPrice">
+            <summary>
+            Gets or sets the formula price.
+            </summary>
+            <value>The formula price.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.PriceModel.FormulaVariables">
+            <summary>
+            Gets or sets the formula variables.
+            </summary>
+            <value>The formula variables.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.ProductModel">
+            <summary>
+            Class ProductModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.ProductModel.id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.ProductModel.name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.ProductModel.description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.ProductOptionModel">
+            <summary>
+            Class ProductOptionModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.ProductOptionModel.id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.ProductOptionModel.name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.ProductOptionModel.description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.ProductOptionPricingModel">
+            <summary>
+            Class ProductOptionPricingModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.ProductOptionPricingModel.Option">
+            <summary>
+            Gets or sets the option.
+            </summary>
+            <value>The option.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.ProductOptionPricingModel.Prices">
+            <summary>
+            Gets or sets the prices.
+            </summary>
+            <value>The prices.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.ProductPricingModel">
+            <summary>
+            Class ProductPricingModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.ProductPricingModel.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>The product.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.ProductPricingModel.Prices">
+            <summary>
+            Gets or sets the prices.
+            </summary>
+            <value>The prices.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.ProductPricingModel.FormulaVariables">
+            <summary>
+            Gets or sets the formula variables.
+            </summary>
+            <value>The formula variables.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.Requests.AttributesForProductOptionRequest">
+            <summary>
+            Class AttributesForProductOptionRequest.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributesForProductOptionRequest.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>The product.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributesForProductOptionRequest.ProductOption">
+            <summary>
+            Gets or sets the product option.
+            </summary>
+            <value>The product option.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributesForProductOptionRequest.Attributes">
+            <summary>
+            Gets or sets the attributes.
+            </summary>
+            <value>The attributes.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.Requests.AttributesForProductRequest">
+            <summary>
+            Class AttributesForProductRequest.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributesForProductRequest.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>The product.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributesForProductRequest.Attributes">
+            <summary>
+            Gets or sets the attributes.
+            </summary>
+            <value>The attributes.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductOptionRequest">
+            <summary>
+            Class AttributeValuesForProductOptionRequest.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductOptionRequest.product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>The product.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductOptionRequest.productOption">
+            <summary>
+            Gets or sets the product option.
+            </summary>
+            <value>The product option.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductOptionRequest.attribute">
+            <summary>
+            Gets or sets the attribute.
+            </summary>
+            <value>The attribute.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductOptionRequest.attributeValues">
+            <summary>
+            Gets or sets the attribute values.
+            </summary>
+            <value>The attribute values.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductRequest">
+            <summary>
+            Class AttributeValuesForProductRequest.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductRequest.product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>The product.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductRequest.attribute">
+            <summary>
+            Gets or sets the attribute.
+            </summary>
+            <value>The attribute.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.AttributeValuesForProductRequest.attributeValues">
+            <summary>
+            Gets or sets the attribute values.
+            </summary>
+            <value>The attribute values.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.Requests.InitialOptionPriceRequest">
+            <summary>
+            Class InitialOptionPriceRequest.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.InitialOptionPriceRequest.Option">
+            <summary>
+            Gets or sets the option.
+            </summary>
+            <value>The option.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.InitialOptionPriceRequest.InitialPrice">
+            <summary>
+            Gets or sets the initial price.
+            </summary>
+            <value>The initial price.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.Requests.InitialProductPriceRequest">
+            <summary>
+            Class InitialProductPriceRequest.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.InitialProductPriceRequest.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>The product.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.InitialProductPriceRequest.InitialPrice">
+            <summary>
+            Gets or sets the initial price.
+            </summary>
+            <value>The initial price.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.Requests.ProductionOptionsForProductRequest">
+            <summary>
+            Class ProductionOptionsForProductRequest.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.ProductionOptionsForProductRequest.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>The product.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.ProductionOptionsForProductRequest.Options">
+            <summary>
+            Gets or sets the options.
+            </summary>
+            <value>The options.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.Requests.ProductOptionPriceRequest">
+            <summary>
+            Class ProductOptionPriceRequest.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.ProductOptionPriceRequest.Option">
+            <summary>
+            Gets or sets the option.
+            </summary>
+            <value>The option.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.ProductOptionPriceRequest.Price">
+            <summary>
+            Gets or sets the price.
+            </summary>
+            <value>The price.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.Requests.ProductOptionsForProductRequest">
+            <summary>
+            Class ProductOptionsForProductRequest.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.ProductOptionsForProductRequest.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>The product.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.ProductOptionsForProductRequest.Options">
+            <summary>
+            Gets or sets the options.
+            </summary>
+            <value>The options.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.Products.Requests.ProductPriceRequest">
+            <summary>
+            Class ProductPriceRequest.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.ProductPriceRequest.Product">
+            <summary>
+            Gets or sets the product.
+            </summary>
+            <value>The product.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.Products.Requests.ProductPriceRequest.Price">
+            <summary>
+            Gets or sets the price.
+            </summary>
+            <value>The price.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.ServicesLocationModel">
+            <summary>
+            Class ServicesLocationModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.BannerFileUploadServiceLocation">
+            <summary>
+            Gets or sets the banner file upload service location.
+            </summary>
+            <value>The banner file upload service location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.BannerFileListServiceLocation">
+            <summary>
+            Gets or sets the banner file list service location.
+            </summary>
+            <value>The banner file list service location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.FooterFileUploadServiceLocation">
+            <summary>
+            Gets or sets the footer file upload service location.
+            </summary>
+            <value>The footer file upload service location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.FooterFileListServiceLocation">
+            <summary>
+            Gets or sets the footer file list service location.
+            </summary>
+            <value>The footer file list service location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.GetSystemConfigurationServiceLocation">
+            <summary>
+            Gets or sets the get system configuration service location.
+            </summary>
+            <value>The get system configuration service location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.SetSystemConfigurationServiceLocation">
+            <summary>
+            Gets or sets the set system configuration service location.
+            </summary>
+            <value>The set system configuration service location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.UsersServiceLocation">
+            <summary>
+            Gets or sets the users service location.
+            </summary>
+            <value>The users service location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.AddUserServiceLocation">
+            <summary>
+            Gets or sets the add user service location.
+            </summary>
+            <value>The add user service location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.RolesServiceLocation">
+            <summary>
+            Gets or sets the roles service location.
+            </summary>
+            <value>The roles service location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.SetUserRolesLocation">
+            <summary>
+            Gets or sets the set user roles location.
+            </summary>
+            <value>The set user roles location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.GetContactsLocation">
+            <summary>
+            Gets or sets the get contacts location.
+            </summary>
+            <value>The get contacts location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.GetContactLocation">
+            <summary>
+            Gets or sets the get contact location.
+            </summary>
+            <value>The get contact location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.GetCustomersLocation">
+            <summary>
+            Gets or sets the get customers location.
+            </summary>
+            <value>The get customers location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.SetCustomerLocation">
+            <summary>
+            Gets or sets the set customer location.
+            </summary>
+            <value>The set customer location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.GetStatesLocation">
+            <summary>
+            Gets or sets the get states location.
+            </summary>
+            <value>The get states location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.GetPhoneNumberTypesLocation">
+            <summary>
+            Gets or sets the get phone number types location.
+            </summary>
+            <value>The get phone number types location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.GetProductsLocation">
+            <summary>
+            Gets or sets the get products location.
+            </summary>
+            <value>The get products location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.SetProductLocation">
+            <summary>
+            Gets or sets the set product location.
+            </summary>
+            <value>The set product location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.GetProductOptionsLocation">
+            <summary>
+            Gets or sets the get product options location.
+            </summary>
+            <value>The get product options location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.SetProductOptionLocation">
+            <summary>
+            Gets or sets the set product option location.
+            </summary>
+            <value>The set product option location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.GetAttributesLocation">
+            <summary>
+            Gets or sets the get attributes location.
+            </summary>
+            <value>The get attributes location.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.ServicesLocationModel.SetAttributeLocation">
+            <summary>
+            Gets or sets the set attribute location.
+            </summary>
+            <value>The set attribute location.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.SystemConfigurationModel">
+            <summary>
+            Class SystemConfigurationModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.SystemConfigurationModel.SelectedBannerFile">
+            <summary>
+            Gets or sets the selected banner file.
+            </summary>
+            <value>The selected banner file.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.SystemConfigurationModel.SelectedFooterFile">
+            <summary>
+            Gets or sets the selected footer file.
+            </summary>
+            <value>The selected footer file.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.SystemConfigurationModel.BackgroundColor">
+            <summary>
+            Gets or sets the color of the background.
+            </summary>
+            <value>The color of the background.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.SystemConfigurationModel.NextCustomerNumber">
+            <summary>
+            Gets or sets the next customer number.
+            </summary>
+            <value>The next customer number.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.UserModel">
+            <summary>
+            Class UserModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.UserModel.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.UserModel.Label">
+            <summary>
+            Gets or sets the label.
+            </summary>
+            <value>The label.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.UserModel.Roles">
+            <summary>
+            Gets or sets the roles.
+            </summary>
+            <value>The roles.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.API.UserRolesModel">
+            <summary>
+            Class UserRolesModel.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.UserRolesModel.UserId">
+            <summary>
+            Gets or sets the user identifier.
+            </summary>
+            <value>The user identifier.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.API.UserRolesModel.Roles">
+            <summary>
+            Gets or sets the roles.
+            </summary>
+            <value>The roles.</value>
+        </member>
+        <member name="T:OrderInvoiceService.Models.ErrorMessageForClient">
+            <summary>
+            Class ErrorMessageForClient.
+            </summary>
+        </member>
+        <member name="P:OrderInvoiceService.Models.ErrorMessageForClient.message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+            <value>The message.</value>
+        </member>
+        <member name="P:OrderInvoiceService.Models.ErrorMessageForClient.exceptionType">
+            <summary>
+            Gets or sets the type of the exception.
+            </summary>
+            <value>The type of the exception.</value>
+        </member>
+        <member name="M:OrderInvoiceService.Models.ErrorMessageForClient.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Models.ErrorMessageForClient"/> class.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Models.ErrorMessageForClient.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Models.ErrorMessageForClient"/> class.
+            </summary>
+            <param name="x">The x.</param>
+        </member>
+        <member name="T:OrderInvoiceService.Program">
+            <summary>
+            Class Program.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:OrderInvoiceService.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">The arguments.</param>
+            <returns>IHostBuilder.</returns>
+        </member>
+        <member name="T:OrderInvoiceService.Startup">
+            <summary>
+            Class Startup.
+            </summary>
+        </member>
+        <member name="M:OrderInvoiceService.Startup.#ctor(Microsoft.Extensions.Hosting.IHostEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OrderInvoiceService.Startup"/> class.
+            </summary>
+            <param name="env">The env.</param>
+        </member>
+        <member name="P:OrderInvoiceService.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:OrderInvoiceService.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the services.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:OrderInvoiceService.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configures the specified application.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+    </members>
+</doc>
