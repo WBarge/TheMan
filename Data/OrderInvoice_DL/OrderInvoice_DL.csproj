@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CrossCutting\OrderInvoice_Interfaces\OrderInvoice_Interfaces.csproj" />
+    <ProjectReference Include="..\..\Bussiness\OrderInvoice_Interfaces\OrderInvoice_Interfaces.csproj" />
     <ProjectReference Include="..\..\CrossCutting\Utilites\Utilites.csproj" />
   </ItemGroup>
 

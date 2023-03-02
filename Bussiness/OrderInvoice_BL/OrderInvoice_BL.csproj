@@ -8,10 +8,10 @@
     <ProjectReference Include="..\..\CrossCutting\Encryption\Encryption.csproj" />
     <ProjectReference Include="..\..\CrossCutting\Exceptions\Exceptions.csproj" />
     <ProjectReference Include="..\..\CrossCutting\MathParser\MathParser.csproj" />
-    <ProjectReference Include="..\..\CrossCutting\OrderInvoice_Interfaces\OrderInvoice_Interfaces.csproj" />
     <ProjectReference Include="..\..\CrossCutting\Utilites\Utilites.csproj">
       <Private>true</Private>
     </ProjectReference>
+    <ProjectReference Include="..\OrderInvoice_Interfaces\OrderInvoice_Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

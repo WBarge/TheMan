@@ -9,7 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CrossCutting\OrderInvoice_Interfaces\OrderInvoice_Interfaces.csproj" />
     <ProjectReference Include="..\Data\OrderInvoice_DL\OrderInvoice_DL.csproj" />
   </ItemGroup>
 

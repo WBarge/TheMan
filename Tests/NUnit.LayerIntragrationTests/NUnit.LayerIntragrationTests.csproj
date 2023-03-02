@@ -139,6 +139,10 @@
       <Project>{7579e26c-9fb9-4902-869b-8ab25f39f290}</Project>
       <Name>OrderInvoice_BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Bussiness\OrderInvoice_Interfaces\OrderInvoice_Interfaces.csproj">
+      <Project>{5717b6e6-86dd-43af-abb6-c071d5000697}</Project>
+      <Name>OrderInvoice_Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\CompositionRoot\CompositionRoot.csproj">
       <Project>{e68200f0-8973-4807-9488-29c0321002ce}</Project>
       <Name>CompositionRoot</Name>
@@ -146,10 +150,6 @@
     <ProjectReference Include="..\..\CrossCutting\Exceptions\Exceptions.csproj">
       <Project>{9869597b-36c2-4343-9e03-8d473e946d8d}</Project>
       <Name>Exceptions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\CrossCutting\OrderInvoice_Interfaces\OrderInvoice_Interfaces.csproj">
-      <Project>{654bf827-35b4-4eba-8cb7-134b4d4a8d6e}</Project>
-      <Name>OrderInvoice_Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\CrossCutting\Utilites\Utilites.csproj">
       <Project>{54c9916f-3248-437c-bdee-88ed68ddb14f}</Project>

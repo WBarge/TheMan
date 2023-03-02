@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Bussiness\OrderInvoice_BL\OrderInvoice_BL.csproj" />
-    <ProjectReference Include="..\..\CrossCutting\OrderInvoice_Interfaces\OrderInvoice_Interfaces.csproj" />
+    <ProjectReference Include="..\..\Bussiness\OrderInvoice_Interfaces\OrderInvoice_Interfaces.csproj" />
     <ProjectReference Include="..\..\CrossCutting\Utilites\Utilites.csproj" />
   </ItemGroup>
 
