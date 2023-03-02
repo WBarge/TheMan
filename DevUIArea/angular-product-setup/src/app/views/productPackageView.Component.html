@@ -1,0 +1,34 @@
+﻿<p-table #packagedProductsTable [value]="packagedProducts" [rows]="10" [paginator]="true">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <button type="button" pButton (click)="clickCreatePackageProduct()" label="Create"></button>
+            </th>
+            <th pSortableColumn="description">Description<p-sortIcon field="description"></p-sortIcon>
+            </th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                <input pInputText type="text" (input)="packagedProductsTable.filter($event.target.value, 'description', 'contains')">
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-packagedProduct>
+        <tr>
+            <td>
+                <button type="button" pButton (click)="clickEditPackagedProductDialog(packagedProduct)" icon="fa fa-binoculars"></button>
+            </td>
+            <td>{{packagedProduct.description}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog header="Packaged Product" [(visible)]="showPackageEditor" modal="true" [closable]="true" width="800">
+    <packagedProduct [packagedProduct]="selectedPackagedProduct" [tabNumber]="currentTab" (tabChanged) ="tabChanged($event)"></packagedProduct>
+    <p-footer>
+        <button type="button" pButton (click)="clickCancel()" label="Cancel"></button>
+        <button type="button" pButton (click)="clickPrev()" label="Back"></button>
+        <button type="button" pButton (click)="clickNext()" label="Next"></button>
+    </p-footer>
+</p-dialog>

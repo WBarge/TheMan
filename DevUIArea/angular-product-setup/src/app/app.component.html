@@ -1,0 +1,5 @@
+<p-toast></p-toast>
+<p-menu #menu popup="popup" [model]="items"></p-menu>
+<button type="button" pButton icon="fa fa-list" label="Product Menu" (click)="menu.toggle($event)"></button>
+<br/>
+<router-outlet></router-outlet>

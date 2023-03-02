@@ -1,0 +1,57 @@
+﻿<p-table #productOptionPricesTable [value]="productOptionData" [rows]="10" [paginator]="true">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+            <th>Pricing</th>
+        </tr>
+        <tr>
+            <th>
+                <input pInputText type="text" (input)="productOptionPricesTable.filter($event.target.value, 'option.name', 'contains')">
+            </th>
+            <th>The price with a range of 12/31/9999 to 12/31/9999 is the default price.</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-productOptionPricing>
+        <tr>
+            <td>{{productOptionPricing.option.name}}</td>
+            <td>
+                <p-table [value]="productOptionPricing.prices">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>
+                                <button type="button" pButton (click)="clickNewProductPricing(productOptionPricing)" label="Add Pricing"></button>
+                            </th>
+                            <th>Start</th>
+                            <th>End</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-price>
+                        <tr>
+                            <td>
+                                <button type="button" (click)="clickEditProductPricing(productOptionPricing.option, price)" pButton icon="fa fa-binoculars"></button>
+                            </td>
+                            <td>{{price.startFormatted}}</td>
+                            <td>{{price.endFormatted}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+
+<p-dialog header="Create New Product Option Pricing" [(visible)]="showNewOptionPricingDialog" modal="true" [closable]="true" width="800">
+    <price [priceData]="priceDialogObject" [showFormula]="false"></price>
+    <p-footer>
+        <button type="button" pButton (click)="createNewProductOptionPriceDialogClick()" label="Create Price"></button>
+    </p-footer>
+</p-dialog>
+
+<p-dialog header="Product Option Pricing Details" [(visible)]="showEditOptionPricingDialog" modal="true" [closable]="true" width="800">
+    <price [priceData]="priceDialogObject" [showFormula]="false"></price>
+    <p-footer>
+        <button type="button" pButton (click)="saveProductOptionPriceDialogClick()" label="Save Price"></button>
+    </p-footer>
+</p-dialog>
+

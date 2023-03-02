@@ -1,0 +1,15 @@
+﻿<p-fieldset legend={{headingTest}}>
+    <p>Address 1</p>
+    <input type="text" pInputText *ngIf="data" [(ngModel)]="data.address1" />
+    <p>Address 2</p>
+    <input type="text" pInputText *ngIf="data" [(ngModel)]="data.address2" />
+    <p>City</p>
+    <input type="text" pInputText *ngIf="data" [(ngModel)]="data.city" />
+    
+    <p>
+        State<br />
+        <p-dropdown appendTo="body" [options]="stateList" *ngIf="data" [(ngModel)]="data.stateValue" [autoWidth]="false"></p-dropdown>
+    </p>
+    <p>Zip</p>
+    <input type="text" *ngIf="data" pInputText [(ngModel)]="data.zip" />
+</p-fieldset>

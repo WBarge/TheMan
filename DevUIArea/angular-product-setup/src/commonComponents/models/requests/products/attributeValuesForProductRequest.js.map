@@ -1,0 +1,1 @@
+{"version":3,"file":"attributeValuesForProductRequest.js","sourceRoot":"","sources":["attributeValuesForProductRequest.ts"],"names":[],"mappings":";;AACA,gEAA+D;AAC/D,4DAA2D;AAG3D;IAKI;QACI,IAAI,CAAC,OAAO,GAAG,IAAI,2BAAY,EAAE,CAAC;QAClC,IAAI,CAAC,SAAS,GAAG,IAAI,+BAAc,EAAE,CAAC;QACtC,IAAI,CAAC,eAAe,GAAG,IAAI,KAAK,EAA8B,CAAA;IAClE,CAAC;IACL,uCAAC;AAAD,CAAC,AAVD,IAUC;AAVY,4EAAgC"}

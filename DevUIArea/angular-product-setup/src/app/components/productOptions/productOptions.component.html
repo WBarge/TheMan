@@ -1,0 +1,38 @@
+﻿<p-table #productOptionTable [value]="productOptionData" [rows]="10" [paginator]="true">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <button type="button" pButton (click)="clickNewProductOptionDialog()" label="Add"></button>
+            </th>
+            <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th>
+                <input pInputText type="text" (input)="productOptionTable.filter($event.target.value, 'name', 'contains')">
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-productOption>
+        <tr>
+            <td>
+                <button type="button" pButton (click)="clickDetailOptionDialog(productOption)" icon="fa fa-binoculars"></button>
+            </td>
+            <td>{{productOption.name}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog header="Create New Option" [(visible)]="showNewProductOptionDialog" modal="true" [closable]="true" width="800">
+    <productOption [ProductOptionData]="newProductOption"></productOption>
+    <p-footer>
+        <button type="button" pButton (click)="createNewProductOptionDialogClick()" label="Create Option"></button>
+    </p-footer>
+</p-dialog>
+
+<p-dialog header="Option Details" [(visible)]="showProductOptionDetailDialog" modal="true" [closable]="true" width="800">
+    <productOption [ProductOptionData]="selectedProductOption"></productOption>
+    <p-footer>
+        <button type="button" pButton (click)="saveProductOptionDetailDialogClick()" label="Save Option"></button>
+    </p-footer>
+</p-dialog>

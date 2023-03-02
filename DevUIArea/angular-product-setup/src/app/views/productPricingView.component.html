@@ -1,0 +1,23 @@
+<div class="ui-g-12" *ngIf="validProducts">
+    <p-dropdown [options]="productList"
+                [(ngModel)]="selectedProduct"
+                >
+    </p-dropdown>
+    <br/>
+    <br/>
+    <button type="button" pButton (click)="clickAddProductPricing()" label="Create Initial Pricing"></button>
+</div>
+
+<div class="ui-g-12" >
+    <baseProductPrices></baseProductPrices>
+</div>
+
+<p-dialog header="Create New Pricing For Product" [(visible)]="showCreateInitialProductPricingDialog" modal="true" [closable]="true" width="800">
+    <div>
+        Initial price<br/>
+        <input type="number" [(ngModel)]="newPricingInitialPrice" min="0" step="0.01" class="currency"/> <!--this works in Chrome but not in Firefox TODO:work on cross browser support-->
+    </div>
+    <p-footer>
+        <button type="button" pButton (click)="createNewProductPricingDialogClick()" label="Create Pricing"></button>
+    </p-footer>
+</p-dialog>

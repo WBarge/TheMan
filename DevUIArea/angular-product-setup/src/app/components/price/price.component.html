@@ -1,0 +1,13 @@
+﻿ Price Start
+<p-calendar [(ngModel)]="priceData.startDateTime" [inline]="true"></p-calendar>
+Price End
+<p-calendar [(ngModel)]="priceData.endDateTime" [inline]="true"></p-calendar>
+<br/>
+Flat Price
+<p-spinner [(ngModel)]="priceData.flatPrice" [min]="0" [step]="0.01" class="currency"></p-spinner>
+<br />
+<div *ngIf="showFormula">
+    Formula Price
+    <input title={{priceData.formulaVariablesFormatted}} type="text" pInputText [(ngModel)]="priceData.formulaPrice" />
+    <span (innerText)="priceData.formulaPrice"></span>
+</div>

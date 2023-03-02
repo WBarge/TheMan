@@ -1,0 +1,14 @@
+﻿<p-fieldset legend="Attribute Values" [toggleable]="false">
+    <label for="value">Value</label>
+    <input id="value" type="number" pInputText [(ngModel)]="newValue" min="0" step="1"/>
+    <label for="descr">Value Description</label>
+    <input id="descr" type="text" pInputText [(ngModel)]="newDescription" />
+    <br/>
+    <br/>
+    <button [disabled]="enabled" pButton label="Add To List" (click)="clickAddToList()"></button>
+    <br/>
+    <br/>
+    <p-listbox [options]="enteryValues" [(ngModel)]="selectedValue"></p-listbox>
+    <br/>
+    <button [disabled]="enabled" pButton label="Remove From List" (click)="clickRemoveFromList()"></button>
+</p-fieldset>
