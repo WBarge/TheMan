@@ -12,8 +12,8 @@ namespace OrderInvoice_BL.Contacts
     {
 
         #region Constants
-        public const int MaxNameLength = 50;
-        public const int MaxAbrvLength = 5;
+        public const int NAME_LENGTH = 50;
+        public const int ABRV_LENGTH = 5;
         #endregion
 
         #region Local Vars
@@ -90,6 +90,7 @@ namespace OrderInvoice_BL.Contacts
         /// <param name="id">
         /// The id for the email address to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected Country(int id, IRepository repository) : this(repository)
         {
             ICountry dbObj = GetDbRecord(id);
@@ -122,6 +123,7 @@ namespace OrderInvoice_BL.Contacts
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static Country GetById(int id, IRepository repository)
         {

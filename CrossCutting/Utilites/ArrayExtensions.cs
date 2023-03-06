@@ -17,7 +17,6 @@ namespace Utilites
         /// <summary>
         /// Checks if the input Array is not empty.
         /// </summary>
-        /// <param name="o">Array to be checked.</param>
         /// <returns>true if the Array is not empty.</returns>
         public static bool IsNotEmpty(this Array obj)
         {

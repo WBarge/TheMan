@@ -108,7 +108,7 @@ namespace OrderInvoice_BL_UnitTests.Application
         private void ConfigureSingleTestObject()
         {
             _repositoryMock.Setup(m => m.GetApplicationConfiguration(It.IsAny<int>()))
-                .Returns(DataCreator.CreateDataObejct());
+                .Returns(DataCreator.CreateDataObject());
         }
 
         private void ConfigureEmptyTestObject()
@@ -120,7 +120,7 @@ namespace OrderInvoice_BL_UnitTests.Application
         {
             List<IApplicationConfiguration> resultSet = new List<IApplicationConfiguration>
             {
-                DataCreator.CreateDataObejct()
+                DataCreator.CreateDataObject()
             };
             _repositoryMock.Setup((m => m.GetApplicationConfigurations())).Returns(resultSet);
         }

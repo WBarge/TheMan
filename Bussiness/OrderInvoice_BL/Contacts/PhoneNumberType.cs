@@ -53,6 +53,7 @@ namespace OrderInvoice_BL.Contacts
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected PhoneNumberType(int id, IRepository repository) : this(repository)
         {
             IPhoneNumberType dbObj = GetDbRecord(id);
@@ -69,7 +70,6 @@ namespace OrderInvoice_BL.Contacts
         /// <summary>
         /// Permanently the remove from system.
         /// </summary>
-        /// <param name="id">The identifier.</param>
         /// <exception cref="DataException">You can not delete a new object</exception>
         public override void PermanentlyRemoveFromSystem()
         {
@@ -101,6 +101,7 @@ namespace OrderInvoice_BL.Contacts
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static PhoneNumberType GetById(int id, IRepository repository)
         {
@@ -135,18 +136,18 @@ namespace OrderInvoice_BL.Contacts
         ///     true - return both active and inactive objects
         ///     false - return active objects only
         /// </param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static List<PhoneNumberType> GetAll(bool includeDeleted, IRepository repository)
         {
             IEnumerable<IPhoneNumberType> tempList = null;
             List<PhoneNumberType> returnValue = new List<PhoneNumberType>();
-            PhoneNumberType temp = null;
             tempList = repository.GetPhoneNumberTypes();
             foreach (IPhoneNumberType tempObj in tempList)
             {
                 if (includeDeleted || !tempObj.Deleted)
                 {
-                    temp = new PhoneNumberType(repository);
+                    PhoneNumberType temp = new PhoneNumberType(repository);
                     temp.CopyPropertiesFromDbObj(tempObj);
                     temp.isNew = false;
                     returnValue.Add(temp);
@@ -197,7 +198,7 @@ namespace OrderInvoice_BL.Contacts
         /// is set correctly
         /// will throw if validation fails
         /// </summary>
-        override protected void Validate()
+        protected override void Validate()
         {
             if (Type.IsEmpty() || Type == PhoneType.None)
             {

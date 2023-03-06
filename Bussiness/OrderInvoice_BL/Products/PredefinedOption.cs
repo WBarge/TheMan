@@ -10,7 +10,7 @@ namespace OrderInvoice_BL.Products
     public class PredefinedOption : BussinessObject
     {
         #region Constants
-        public const int MaxDescriptionLength = 255;
+        public const int DESCRIPTION_LENGTH = 255;
         #endregion Constants
 
         #region Local Vars
@@ -18,6 +18,7 @@ namespace OrderInvoice_BL.Products
 
         #region Properties
 
+        // ReSharper disable once InconsistentNaming
         internal PredefinedProduct PredefinedProduct;
 
         /// <summary>
@@ -28,6 +29,7 @@ namespace OrderInvoice_BL.Products
         /// </value>
         public int PredefinedProductId { get { return PredefinedProduct.Id; } }
 
+        // ReSharper disable once InconsistentNaming
         internal ProductOption Option;
 
         public int OptionId { get { return Option.Id; } }
@@ -46,7 +48,7 @@ namespace OrderInvoice_BL.Products
             get { return (_description); }
             set
             {
-                if (value.Length > MaxDescriptionLength)
+                if (value.Length > DESCRIPTION_LENGTH)
                 {
                     throw (new InvalidLengthException("The Description field is too long"));
                 }
@@ -98,6 +100,7 @@ namespace OrderInvoice_BL.Products
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected PredefinedOption(int id, IRepository repository)
             : this(repository)
         {
@@ -271,6 +274,7 @@ namespace OrderInvoice_BL.Products
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static PredefinedOption GetById(int id, IRepository repository)
         {
@@ -305,6 +309,7 @@ namespace OrderInvoice_BL.Products
         ///     true - return both active and inactive objects
         ///     false - return active objects only
         /// </param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static List<PredefinedOption> GetAll(bool includeDeleted, IRepository repository)
         {

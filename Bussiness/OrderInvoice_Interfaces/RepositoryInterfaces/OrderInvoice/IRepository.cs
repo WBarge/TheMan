@@ -14,6 +14,7 @@
 using System.Collections.Generic;
 using OrderInvoice_Interfaces.DB_DTOs;
 
+// ReSharper disable once CheckNamespace
 namespace OrderInvoice_Interfaces.RepositoryInterfaces
 {
     /// <summary>

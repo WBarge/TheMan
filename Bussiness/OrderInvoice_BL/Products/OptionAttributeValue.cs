@@ -10,8 +10,8 @@ namespace OrderInvoice_BL.Products
     {
 
         #region Constants
-        public const int MaxValueNameLength = 150;
-        public const int MaxDescriptionLength = 255;
+        public const int VALUE_NAME_LENGTH = 150;
+        public const int DESCRIPTION_LENGTH = 255;
         #endregion
 
         #region Local Vars
@@ -33,7 +33,7 @@ namespace OrderInvoice_BL.Products
             get { return (_description); }
             set
             {
-                if (value.Length > MaxValueNameLength)
+                if (value.Length > VALUE_NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The Description field is too long"));
                 }
@@ -57,7 +57,7 @@ namespace OrderInvoice_BL.Products
             get { return (_description); }
             set
             {
-                if (value.Length > MaxDescriptionLength)
+                if (value.Length > DESCRIPTION_LENGTH)
                 {
                     throw (new InvalidLengthException("The Description field is too long"));
                 }
@@ -108,6 +108,7 @@ namespace OrderInvoice_BL.Products
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected OptionAttributeValue(int id, IRepository repository) : this(repository)
         {
             IOptionsAttributeValues dbObj = GetDbRecord(id);
@@ -163,6 +164,7 @@ namespace OrderInvoice_BL.Products
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static OptionAttributeValue GetById(int id, IRepository repository)
         {

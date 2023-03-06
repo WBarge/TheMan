@@ -9,8 +9,8 @@ namespace OrderInvoice_BL.Products
     {
 
         #region Constants
-        public const int MaxValueNameLength = 150;
-        public const int MaxDescriptionLength = 255;
+        public const int VALUE_NAME_LENGTH = 150;
+        public const int DESCRIPTION_LENGTH = 255;
         #endregion
 
         #region Local Vars
@@ -32,7 +32,7 @@ namespace OrderInvoice_BL.Products
             get { return (_valueName); }
             set
             {
-                if (value.Length > MaxValueNameLength)
+                if (value.Length > VALUE_NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The valueName field is too long"));
                 }
@@ -53,7 +53,7 @@ namespace OrderInvoice_BL.Products
             get { return (_description); }
             set
             {
-                if (value.Length > MaxDescriptionLength)
+                if (value.Length > DESCRIPTION_LENGTH)
                 {
                     throw (new InvalidLengthException("The Description field is too long"));
                 }

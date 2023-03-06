@@ -8,7 +8,8 @@ namespace Exceptions
 		/// <summary>
 		/// Initializes a new instance of the <see cref="InvalidParameterException"/> class.
 		/// </summary>
-		public InvalidParameterException() : base() {}
+		public InvalidParameterException()
+        {}
 		/// <summary>
 		/// Initializes a new instance of the <see cref="InvalidParameterException"/> class.
 		/// </summary>

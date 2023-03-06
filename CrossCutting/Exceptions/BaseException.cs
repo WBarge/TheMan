@@ -4,12 +4,13 @@ using System.Runtime.Serialization;
 namespace Exceptions
 {
 	[Serializable]
-	public class BaseException : System.Exception
+	public class BaseException : Exception
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BaseException"/> class.
 		/// </summary>
-		public BaseException() : base() {}
+		public BaseException()
+        {}
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BaseException"/> class.
 		/// </summary>
@@ -20,7 +21,7 @@ namespace Exceptions
 		/// </summary>
 		/// <param name="message">The message.</param>
 		/// <param name="inner">The inner.</param>
-		public BaseException(string message, System.Exception inner) : base(message, inner) {}
+		public BaseException(string message, Exception inner) : base(message, inner) {}
 		/// <summary>
 		/// Initializes a new instance of the <see cref="BaseException"/> class.
 		/// </summary>

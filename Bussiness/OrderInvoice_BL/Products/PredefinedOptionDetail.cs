@@ -10,7 +10,7 @@ namespace OrderInvoice_BL.Products
     internal class PredefinedOptionDetail : BussinessObject
     {
         #region Constants
-        public const int MaxValueLength = 150;
+        public const int VALUE_LENGTH = 150;
         #endregion Constants
 
         #region Local Vars
@@ -21,6 +21,7 @@ namespace OrderInvoice_BL.Products
         /// <summary>
         /// The predefined option
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         internal PredefinedOption PredefinedOption;
 
         /// <summary>
@@ -34,6 +35,7 @@ namespace OrderInvoice_BL.Products
         /// <summary>
         /// The attribute
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         internal Attribute Attribute;
 
         /// <summary>
@@ -60,7 +62,7 @@ namespace OrderInvoice_BL.Products
             get { return (this._value); }
             set
             {
-                if (value.Length > MaxValueLength)
+                if (value.Length > VALUE_LENGTH)
                 {
                     throw (new InvalidLengthException("The Value field is too long"));
                 }
@@ -111,6 +113,7 @@ namespace OrderInvoice_BL.Products
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected PredefinedOptionDetail(int id, IRepository repository)
             : this(repository)
         {
@@ -171,6 +174,7 @@ namespace OrderInvoice_BL.Products
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         internal static PredefinedOptionDetail GetById(int id, IRepository repository)
         {
@@ -200,12 +204,14 @@ namespace OrderInvoice_BL.Products
         }
 
         /// <summary>
-        /// Factoy method - Gets objects in a list
+        /// Factory method - Gets objects in a list
         /// </summary>
         /// <param name="includeDeleted">
         ///     true - return both active and inactive objects
         ///     false - return active objects only
         /// </param>
+        /// <param name="ppi"></param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         internal static List<PredefinedOptionDetail> GetAll(bool includeDeleted, int ppi, IRepository repository)
         {

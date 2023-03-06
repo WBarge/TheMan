@@ -5,7 +5,8 @@ namespace Exceptions
 		/// <summary>
 		/// Initializes a new instance of the <see cref="DataException"/> class.
 		/// </summary>
-		public DataException() : base() {}
+		public DataException()
+        {}
 		/// <summary>
 		/// Initializes a new instance of the <see cref="DataException"/> class.
 		/// </summary>

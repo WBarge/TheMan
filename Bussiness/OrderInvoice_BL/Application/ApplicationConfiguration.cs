@@ -54,6 +54,7 @@ namespace OrderInvoice_BL.Application
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected ApplicationConfiguration(int id, IRepository repository)
             : this(repository)
         {
@@ -87,6 +88,7 @@ namespace OrderInvoice_BL.Application
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static ApplicationConfiguration GetById(int id, IRepository repository)
         {
@@ -152,7 +154,7 @@ namespace OrderInvoice_BL.Application
         /// should be common to all constructors
         /// needs to call the base method first
         /// </summary>
-        protected override void CommonInit()
+        protected sealed override void CommonInit()
         {
             base.CommonInit();
             Type = ApplicationConfigurationType.None;
@@ -165,7 +167,7 @@ namespace OrderInvoice_BL.Application
         /// is set correctly
         /// will throw if validation fails
         /// </summary>
-        override protected void Validate()
+        protected override void Validate()
         {
             if (Type.IsEmpty() || Type == ApplicationConfigurationType.None)
             {

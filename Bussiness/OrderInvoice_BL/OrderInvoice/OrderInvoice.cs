@@ -11,11 +11,11 @@ namespace OrderInvoice_BL.OrderInvoice
     {
 
         #region Constants
-        public const int MaxAddressLineLength = 40;
-        public const int MaxCityLength = 40;
-        public const int MaxStateNameLength = 20;
-        public const int MaxCountryNameLength = 50;
-        public const int MaxZipLength = 12;
+        public const int ADDRESS_LINE_LENGTH = 40;
+        public const int CITY_LENGTH = 40;
+        public const int STATE_NAME_LENGTH = 20;
+        public const int COUNTRY_NAME_LENGTH = 50;
+        public const int ZIP_LENGTH = 12;
         #endregion
 
         #region Local Vars
@@ -27,40 +27,40 @@ namespace OrderInvoice_BL.OrderInvoice
         /// <summary>
         /// The customer
         /// </summary>
-        protected Customer Customer;
+        protected Customer customer;
         /// <summary>
         /// Gets the customer.
         /// </summary>
         /// <value>
         /// The customer.
         /// </value>
-        public Customer OrderInvoiceCustomer { get { return Customer; } set { Customer = value; } }
+        public Customer OrderInvoiceCustomer { get { return customer; } set { customer = value; } }
         /// <summary>
         /// Gets the customer identifier.
         /// </summary>
         /// <value>
         /// The customer identifier.
         /// </value>
-        public int CustomerId { get { return Customer.IsNotEmpty() ? Customer.Id : DefaultValues.DefaultInt; } }
+        public int CustomerId { get { return customer.IsNotEmpty() ? customer.Id : DefaultValues.DefaultInt; } }
 
         /// <summary>
         /// The employee
         /// </summary>
-        protected Employee Employee;
+        protected Employee employee;
         /// <summary>
         /// Gets the employee.
         /// </summary>
         /// <value>
         /// The employee.
         /// </value>
-        public Employee OrderInvoiceEmployee { get { return Employee; } set { Employee = value; } }
+        public Employee OrderInvoiceEmployee { get { return employee; } set { employee = value; } }
         /// <summary>
         /// Gets the employee identifier.
         /// </summary>
         /// <value>
         /// The employee identifier.
         /// </value>
-        public int EmployeeId { get { return Employee.IsNotEmpty() ? Employee.Id : DefaultValues.DefaultInt; } }
+        public int EmployeeId { get { return employee.IsNotEmpty() ? employee.Id : DefaultValues.DefaultInt; } }
 
         /// <summary>
         /// Gets or sets the order number.
@@ -87,7 +87,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxAddressLineLength)
+                if (value.Length > ADDRESS_LINE_LENGTH)
                 {
                     throw (new InvalidLengthException("The shipping address line 1 field is too long"));
                 }
@@ -115,7 +115,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxAddressLineLength)
+                if (value.Length > ADDRESS_LINE_LENGTH)
                 {
                     throw (new InvalidLengthException("The shipping address line 2 field is too long"));
                 }
@@ -143,7 +143,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxCityLength)
+                if (value.Length > CITY_LENGTH)
                 {
                     throw (new InvalidLengthException("The shipping city field is too long"));
                 }
@@ -171,7 +171,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxStateNameLength)
+                if (value.Length > STATE_NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The shipping state name field is too long"));
                 }
@@ -199,7 +199,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxCountryNameLength)
+                if (value.Length > COUNTRY_NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The shipping country name field is too long"));
                 }
@@ -227,7 +227,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxZipLength)
+                if (value.Length > ZIP_LENGTH)
                 {
                     throw (new InvalidLengthException("The shipping zip field is too long"));
                 }
@@ -255,7 +255,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxAddressLineLength)
+                if (value.Length > ADDRESS_LINE_LENGTH)
                 {
                     throw (new InvalidLengthException("The invoice address line 1 field is too long"));
                 }
@@ -283,7 +283,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxAddressLineLength)
+                if (value.Length > ADDRESS_LINE_LENGTH)
                 {
                     throw (new InvalidLengthException("The invoice address line 2 field is too long"));
                 }
@@ -311,7 +311,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxCityLength)
+                if (value.Length > CITY_LENGTH)
                 {
                     throw (new InvalidLengthException("The invoice city field is too long"));
                 }
@@ -339,7 +339,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxStateNameLength)
+                if (value.Length > STATE_NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The invoice state name field is too long"));
                 }
@@ -367,7 +367,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxCountryNameLength)
+                if (value.Length > COUNTRY_NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The invoice country name field is too long"));
                 }
@@ -395,7 +395,7 @@ namespace OrderInvoice_BL.OrderInvoice
 
             set
             {
-                if (value.Length > MaxZipLength)
+                if (value.Length > ZIP_LENGTH)
                 {
                     throw (new InvalidLengthException("The invoice zip field is too long"));
                 }
@@ -461,12 +461,20 @@ namespace OrderInvoice_BL.OrderInvoice
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected OrderInvoice(int id, IRepository repository) : this(repository)
         {
             IOrderInvoice dbObj = GetDbRecord(id);
             isNew = dbObj.IsEmpty();
             CopyPropertiesFromDbObj(dbObj);
-            this.Employee = Employee.GetEmployeeById((int)dbObj.EmployeeObjid, repository);
+            if (!isNew)
+            {
+
+                // ReSharper disable once PossibleInvalidOperationException
+                this.employee = Employee.GetEmployeeById((int)dbObj.EmployeeObjid, repository);
+                this.customer = Customer.GetCustomerById(dbObj.CustomerObjid, repository);
+            }
+            
         }//end of constructor
 
         #endregion
@@ -528,6 +536,7 @@ namespace OrderInvoice_BL.OrderInvoice
         /// <param name="id">
         /// a peice of data that Uniquely identifies the data record in the db
         /// </param>
+        /// <param name="repository"></param>
         /// <returns>
         /// A new order/invoice object filled with data based on the id passed in
         /// </returns>
@@ -561,10 +570,10 @@ namespace OrderInvoice_BL.OrderInvoice
             {
                 temp = new OrderInvoice(repository);
                 temp.CopyPropertiesFromDbObj(tempItem);
-                temp.Customer = Customer.GetCustomerById(tempItem.CustomerObjid, repository);
+                temp.customer = Customer.GetCustomerById(tempItem.CustomerObjid, repository);
                 if (tempItem.EmployeeObjid.HasValue)
                 {
-                    temp.Employee = Employee.GetEmployeeById((int)tempItem.EmployeeObjid, repository);
+                    temp.employee = Employee.GetEmployeeById((int)tempItem.EmployeeObjid, repository);
                 }
                 temp.isNew = false;
                 returnValue.Add(temp);
@@ -588,8 +597,8 @@ namespace OrderInvoice_BL.OrderInvoice
         protected override void CommonInit()
         {
             base.CommonInit();
-            Customer = null;
-            Employee = null;
+            customer = null;
+            employee = null;
             OrderInvoiceNumber = long.MinValue;
             shippingAddressLine1 = string.Empty;
             shippingAddressLine2 = string.Empty;
@@ -618,7 +627,7 @@ namespace OrderInvoice_BL.OrderInvoice
         /// </summary>
         override protected void Validate()
         {
-            if (Customer.IsEmpty())
+            if (customer.IsEmpty())
             {
                 throw (new RequiredFieldException("Customer is Mandatory"));
             }//end of if
@@ -789,10 +798,10 @@ namespace OrderInvoice_BL.OrderInvoice
             if (dbObj.IsNotEmpty())
             {
                 this.Id = dbObj.Objid;
-                this.Customer = Customer.GetCustomerById(dbObj.CustomerObjid, this.Repository);
+                this.customer = Customer.GetCustomerById(dbObj.CustomerObjid, this.Repository);
                 if (dbObj.EmployeeObjid.HasValue)
                 {
-                    this.Employee = Employee.GetEmployeeById(dbObj.EmployeeObjid.Value, this.Repository);
+                    this.employee = Employee.GetEmployeeById(dbObj.EmployeeObjid.Value, this.Repository);
                 }
                 this.OrderInvoiceNumber = dbObj.OrderNumber;
                 this.shippingAddressLine1 = dbObj.ShippingAddressLine1;

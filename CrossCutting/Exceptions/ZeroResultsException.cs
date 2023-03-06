@@ -8,7 +8,8 @@ namespace Exceptions
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZeroResultsException"/> class.
 		/// </summary>
-		public ZeroResultsException() : base() {}
+		public ZeroResultsException()
+        {}
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ZeroResultsException"/> class.
 		/// </summary>

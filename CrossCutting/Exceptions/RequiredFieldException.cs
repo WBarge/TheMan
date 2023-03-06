@@ -8,7 +8,8 @@ namespace Exceptions
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RequiredFieldException"/> class.
 		/// </summary>
-		public RequiredFieldException() : base() {}
+		public RequiredFieldException()
+        {}
 		/// <summary>
 		/// Initializes a new instance of the <see cref="RequiredFieldException"/> class.
 		/// </summary>

@@ -5,7 +5,8 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="WarningException"/> class.
         /// </summary>
-        public WarningException() : base() {}
+        public WarningException()
+        {}
         /// <summary>
         /// Initializes a new instance of the <see cref="WarningException"/> class.
         /// </summary>

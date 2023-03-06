@@ -12,8 +12,6 @@
 // <summary></summary>
 // ***********************************************************************
 
-using System;
-
 namespace OrderInvoice_Interfaces.DB_DTOs
 {
     /// <summary>

@@ -1,4 +1,5 @@
-﻿namespace OrderInvoice_BL.Contacts
+﻿// ReSharper disable InconsistentNaming
+namespace OrderInvoice_BL.Contacts
 {
     /// <summary>
     /// abbreviation of every country in the world

@@ -18,7 +18,7 @@ namespace OrderInvoice_BL.People
 
         #region Properties
 
-        public int UserId { get { return base.Id; } internal set { base.Id = value; } }
+        public int UserId { get { return Id; } internal set { Id = value; } }
 
 
         public string BadgeId { get; set; }
@@ -189,7 +189,6 @@ namespace OrderInvoice_BL.People
         /// <summary>
         /// Builds the object from database.
         /// </summary>
-        /// <param name="userId">The user identifier.</param>
         private void BuildObjectFromDb(int employeeId)
         {
             IEmployees employee = GetEmployeeDbRecord(employeeId);
@@ -244,7 +243,9 @@ namespace OrderInvoice_BL.People
         private static void CopyProperties(IEmployees dbEmployee, IUsers dbUser, IContacts dbContact, Employee employee)
         {
             employee.CopyPropertiesFromDbObj(dbEmployee);
+            // ReSharper disable once RedundantCast
             ((User)employee).CopyPropertiesFromDbObj(dbUser);
+            // ReSharper disable once RedundantCast
             ((Contact)employee).CopyPropertiesFromDbObj(dbContact);
         }
 

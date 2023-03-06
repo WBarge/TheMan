@@ -12,8 +12,8 @@ namespace OrderInvoice_BL.Contacts
     {
 
         #region Constants
-        public const int MaxNameLength = 20;
-        public const int MaxAbrvLength = 2;
+        public const int NAME_LENGTH = 20;
+        public const int ABBREVIATION_LENGTH = 2;
         #endregion
 
         #region Local Vars
@@ -90,6 +90,7 @@ namespace OrderInvoice_BL.Contacts
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected State(int id, IRepository repository) : this(repository)
         {
             IStates dbObj = GetDbRecord(id);
@@ -106,7 +107,6 @@ namespace OrderInvoice_BL.Contacts
         /// <summary>
         /// Permanently the remove from system.
         /// </summary>
-        /// <param name="id">The identifier.</param>
         /// <exception cref="DataException">You can not delete a new object</exception>
         public override void PermanentlyRemoveFromSystem()
         {
@@ -123,6 +123,7 @@ namespace OrderInvoice_BL.Contacts
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static State GetById(int id, IRepository repository)
         {
@@ -147,11 +148,10 @@ namespace OrderInvoice_BL.Contacts
         {
             IEnumerable<IStates> tempList = null;
             List<State> returnValue = new List<State>();
-            State temp = null;
             tempList = repository.GetStates();
             foreach (IStates tempObj in tempList)
             {
-                temp = new State(repository);
+                State temp = new State(repository);
                 temp.CopyPropertiesFromDbObj(tempObj);
                 temp.isNew = false;
                 returnValue.Add(temp);
@@ -167,9 +167,11 @@ namespace OrderInvoice_BL.Contacts
         /// <returns>State.</returns>
         public static State Create(UsStateName name, IRepository repository)
         {
-            State returnValue = new State(repository);
-            returnValue.Name = name;
-            returnValue.Abbreviation = name.ToState_Abbreviation();
+            State returnValue = new State(repository)
+            {
+                Name = name,
+                Abbreviation = name.ToState_Abbreviation()
+            };
             returnValue.Save();
             return returnValue;
         }
