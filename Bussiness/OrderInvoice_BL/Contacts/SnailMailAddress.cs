@@ -13,10 +13,10 @@ namespace OrderInvoice_BL.Contacts
     public class SnailMailAddress : BussinessObject
     {
         #region Constants
-        public const int MaxLine1Length = 40;
-        public const int MaxLine2Length = 40;
-        public const int MaxCityLength = 40;
-        public const int MaxZipLength = 12;
+        public const int LINE1_LENGTH = 40;
+        public const int LINE2_LENGTH = 40;
+        public const int CITY_LENGTH = 40;
+        public const int ZIP_LENGTH = 12;
         #endregion
 
         #region Local Vars
@@ -37,7 +37,7 @@ namespace OrderInvoice_BL.Contacts
             get { return (_line1.Trim()); }
             set
             {
-                if (value.Length > MaxLine1Length)
+                if (value.Length > LINE1_LENGTH)
                 {
                     throw (new InvalidLengthException("The Line1 field is too long"));
                 }
@@ -60,7 +60,7 @@ namespace OrderInvoice_BL.Contacts
             get { return (_line2.Trim()); }
             set
             {
-                if (value.Length > MaxLine2Length)
+                if (value.Length > LINE2_LENGTH)
                 {
                     throw (new InvalidLengthException("The Line2 field is too long"));
                 }
@@ -83,7 +83,7 @@ namespace OrderInvoice_BL.Contacts
             get { return (_city.Trim()); }
             set
             {
-                if (value.Length > MaxCityLength)
+                if (value.Length > CITY_LENGTH)
                 {
                     throw (new InvalidLengthException("The City field is too long"));
                 }
@@ -106,7 +106,7 @@ namespace OrderInvoice_BL.Contacts
             get { return (_zip.Trim()); }
             set
             {
-                if (value.Length > MaxZipLength)
+                if (value.Length > ZIP_LENGTH)
                 {
                     throw (new InvalidLengthException("The Zip field is too long"));
                 }
@@ -150,7 +150,7 @@ namespace OrderInvoice_BL.Contacts
         #region Constructors
 
         /// <summary>
-        /// Default Contructor
+        /// Default Constructor
         /// </summary>
         public SnailMailAddress(IRepository repository)
             : base(repository)
@@ -160,11 +160,12 @@ namespace OrderInvoice_BL.Contacts
         }//end of default constructor
 
         /// <summary>
-        /// Constructor used to preload the data into the object
+        /// Constructor used to pre-load the data into the object
         /// </summary>
         /// <param name="id">
         /// The id for the phone number to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected SnailMailAddress(int id, IRepository repository) : this(repository)
         {
             ISnailMailAddresses dbObj = GetDbRecord(id);
@@ -212,6 +213,7 @@ namespace OrderInvoice_BL.Contacts
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static SnailMailAddress GetById(int id, IRepository repository)
         {
@@ -246,18 +248,18 @@ namespace OrderInvoice_BL.Contacts
         ///     true - return both active and inactive objects
         ///     false - return active objects only
         /// </param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static List<SnailMailAddress> GetAll(bool includeDeleted, IRepository repository)
         {
             IEnumerable<ISnailMailAddresses> tempList = null;
             List<SnailMailAddress> returnValue = new List<SnailMailAddress>();
-            SnailMailAddress temp = null;
             tempList = repository.GetSnailMailAddresses();
             foreach (ISnailMailAddresses tempObj in tempList)
             {
                 if (includeDeleted || !tempObj.Deleted)
                 {
-                    temp = new SnailMailAddress(repository);
+                    SnailMailAddress temp = new SnailMailAddress(repository);
                     temp.CopyPropertiesFromDbObj(tempObj);
                     temp.isNew = false;
                     returnValue.Add(temp);

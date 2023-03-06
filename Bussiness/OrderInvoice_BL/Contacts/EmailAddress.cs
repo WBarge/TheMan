@@ -11,7 +11,7 @@ namespace OrderInvoice_BL.Contacts
     {
 
         #region Constants
-        public const int MaxAddressLength = 255;
+        public const int ADDRESS_LENGTH = 255;
         #endregion
 
         #region Local Vars
@@ -29,7 +29,7 @@ namespace OrderInvoice_BL.Contacts
             get { return (_address.Trim()); }
             set
             {
-                if (value.Length > MaxAddressLength)
+                if (value.Length > ADDRESS_LENGTH)
                 {
                     throw (new InvalidLengthException("The address field is too long"));
                 }
@@ -77,6 +77,7 @@ namespace OrderInvoice_BL.Contacts
         /// <param name="id">
         /// The id for the email address to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected EmailAddress(int id, IRepository repository) : this(repository)
         {
             IEMailAddresses dbObj = GetDbRecord(id);
@@ -130,6 +131,7 @@ namespace OrderInvoice_BL.Contacts
         /// <param name="id">
         /// a piece of data that Uniquely identifies the data record in the db
         /// </param>
+        /// <param name="repository"></param>
         /// <returns>
         /// A new PhoneNumber object filled with data based on the id passed in
         /// </returns>
@@ -166,18 +168,18 @@ namespace OrderInvoice_BL.Contacts
         ///     true - return both active and inactive objects
         ///     false - return active objects only
         /// </param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static List<EmailAddress> GetAll(bool includeDeleted, IRepository repository)
         {
             IEnumerable<IEMailAddresses> tempList = null;
             List<EmailAddress> returnValue = new List<EmailAddress>();
-            EmailAddress temp = null;
             tempList = repository.GetEmailAddresses();
             foreach (IEMailAddresses tempEmail in tempList)
             {
                 if (includeDeleted || !tempEmail.Deleted)
                 {
-                    temp = new EmailAddress(repository);
+                    EmailAddress temp = new EmailAddress(repository);
                     temp.CopyPropertiesFromDbObj(tempEmail);
                     temp.isNew = false;
                     returnValue.Add(temp);
@@ -210,7 +212,7 @@ namespace OrderInvoice_BL.Contacts
         /// is set correctly
         /// will throw if validation fails
         /// </summary>
-        override protected void Validate()
+        protected override void Validate()
         {
             if (Address.IsEmpty())
             {

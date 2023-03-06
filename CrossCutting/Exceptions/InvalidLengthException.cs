@@ -8,7 +8,8 @@ namespace Exceptions
 		/// <summary>
 		/// Initializes a new instance of the <see cref="InvalidLengthException"/> class.
 		/// </summary>
-		public InvalidLengthException() : base() {}
+		public InvalidLengthException()
+        {}
 		/// <summary>
 		/// Initializes a new instance of the <see cref="InvalidLengthException"/> class.
 		/// </summary>

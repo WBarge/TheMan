@@ -48,6 +48,7 @@ namespace OrderInvoice_BL.OrderInvoice
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected OrderItem(int id, IRepository repository) : this(repository)
         {
             IOrderItem dbObj = GetDbRecord(id);
@@ -88,6 +89,7 @@ namespace OrderInvoice_BL.OrderInvoice
         /// <param name="id">
         /// a piece of data that Uniquely identifies the data record in the db
         /// </param>
+        /// <param name="repository"></param>
         /// <returns>
         /// A new order/invoice object filled with data based on the id passed in
         /// </returns>
@@ -115,11 +117,10 @@ namespace OrderInvoice_BL.OrderInvoice
         {
             IEnumerable<IOrderItem> tempList = null;
             List<OrderItem> returnValue = new List<OrderItem>();
-            OrderItem temp = null;
             tempList = repository.GetOrderItems();
             foreach (IOrderItem tempItem in tempList)
             {
-                temp = new OrderItem(repository);
+                OrderItem temp = new OrderItem(repository);
                 temp.CopyPropertiesFromDbObj(tempItem);
                 temp.isNew = false;
                 returnValue.Add(temp);
@@ -156,7 +157,7 @@ namespace OrderInvoice_BL.OrderInvoice
         /// is set correctly
         /// will throw if validation fails
         /// </summary>
-        override protected void Validate()
+        protected override void Validate()
         {
         }//end of method
 

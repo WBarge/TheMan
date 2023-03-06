@@ -12,7 +12,7 @@ namespace OrderInvoice_BL.Application
     {
         #region Constants
 
-        public const int MaxFileNameLength = 255;
+        public const int FILE_NAME_LENGTH = 255;
 
 
         #endregion Constants
@@ -29,7 +29,7 @@ namespace OrderInvoice_BL.Application
 
             set
             {
-                if (value.Length > MaxFileNameLength)
+                if (value.Length > FILE_NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The file name field is too long"));
                 }
@@ -64,6 +64,7 @@ namespace OrderInvoice_BL.Application
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected StoredFiles(int id, IRepository repository)
             : this(repository)
         {
@@ -97,6 +98,7 @@ namespace OrderInvoice_BL.Application
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static StoredFiles GetById(int id, IRepository repository)
         {
@@ -202,7 +204,7 @@ namespace OrderInvoice_BL.Application
         /// should be common to all constructors
         /// needs to call the base method first
         /// </summary>
-        protected override void CommonInit()
+        protected sealed override void CommonInit()
         {
             base.CommonInit();
             _fileName = string.Empty;
@@ -215,7 +217,7 @@ namespace OrderInvoice_BL.Application
         /// is set correctly
         /// will throw if validation fails
         /// </summary>
-        override protected void Validate()
+        protected override void Validate()
         {
             if (FileName.IsEmpty())
             {
@@ -228,11 +230,11 @@ namespace OrderInvoice_BL.Application
             if (isNew)//this is a create new record only case
             {
                 //this assumes that all files will be stored in the same place when pulled back out of the database
-                //thus files cannot have the same name reguardless of the where in the system the file is being used
+                //thus files cannot have the same name regardless of the where in the system the file is being used
                 IUploadedFiles tempList = Repository.GetUploadedFiles().FirstOrDefault(s => s.FileName == this.FileName);
                 if (tempList.IsNotEmpty())
                 {
-                    throw (new DataException(string.Format("There is already a file with the name of {0} in the system", this._fileName)));
+                    throw (new DataException($"There is already a file with the name of {this._fileName} in the system"));
                 }
             }
         }

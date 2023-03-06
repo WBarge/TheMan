@@ -33,7 +33,7 @@ namespace OrderInvoice_BL.Application
         /// <summary>
         /// The maximum name length
         /// </summary>
-        public const int MaxNameLength = 255;
+        public const int NAME_LENGTH = 255;
         #endregion
 
         #region Local Vars
@@ -58,7 +58,7 @@ namespace OrderInvoice_BL.Application
 
             set
             {
-                if (value.Length > MaxNameLength)
+                if (value.Length > NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The name field is too long"));
                 }
@@ -164,8 +164,10 @@ namespace OrderInvoice_BL.Application
         /// <returns>Role.</returns>
         public static Role Create(string name, IRepository repository)
         {
-            Role returnValue = new Role(repository);
-            returnValue.Name = name;
+            Role returnValue = new Role(repository)
+            {
+                Name = name
+            };
             returnValue.Save();
             return returnValue;
         }
@@ -179,7 +181,7 @@ namespace OrderInvoice_BL.Application
         /// should be common to all constructors
         /// needs to call the base method first
         /// </summary>
-        protected override void CommonInit()
+        protected sealed override void CommonInit()
         {
             base.CommonInit();
             Name = string.Empty;
@@ -192,7 +194,7 @@ namespace OrderInvoice_BL.Application
         /// will throw if validation fails
         /// </summary>
         /// <exception cref="RequiredFieldException">Name is Mandatory</exception>
-        override protected void Validate()
+        protected override void Validate()
         {
             if (Name.IsEmpty())
             {

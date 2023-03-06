@@ -58,3 +58,5 @@ OrderInvoice.sln.DotSettings.user
 Bussiness/OrderInvoice_Interfaces/bin/
 
 Bussiness/OrderInvoice_Interfaces/obj/
+/Data/Database/Database.jfm
+/Data/Database/Database.dbmdl

@@ -7,6 +7,7 @@ namespace OrderInvoice_BL
     public abstract class BussinessObject
     {
         #region Local Vars
+        // ReSharper disable once InconsistentNaming
         protected readonly IRepository Repository;
         // ReSharper disable once InconsistentNaming
         protected bool isNew;

@@ -13,8 +13,8 @@ namespace OrderInvoice_BL.Contacts
     public class PhoneNumber : BussinessObject
     {
         #region Constants
-        public const int MaxNumberLength = 16;
-        public const int MaxCountryCodeLength = 5;
+        public const int NUMBER_LENGTH = 16;
+        public const int COUNTRY_CODE_LENGTH = 5;
         #endregion
 
         #region Local Vars
@@ -32,7 +32,7 @@ namespace OrderInvoice_BL.Contacts
             get { return (_number.Trim()); }
             set
             {
-                if (value.Length > MaxNumberLength)
+                if (value.Length > NUMBER_LENGTH)
                 {
                     throw (new InvalidLengthException("The number field is too long"));
                 }
@@ -62,7 +62,7 @@ namespace OrderInvoice_BL.Contacts
             get { return (countryCode.Trim()); }
             set
             {
-                if (value.Length > MaxCountryCodeLength)
+                if (value.Length > COUNTRY_CODE_LENGTH)
                 {
                     throw (new InvalidLengthException("The country code field is too long"));
                 }
@@ -92,6 +92,7 @@ namespace OrderInvoice_BL.Contacts
         /// <param name="id">
         /// The id for the phone number to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected PhoneNumber(int id, IRepository repository) : this(repository)
         {
             IPhoneNumbers dbObj = GetDbRecord(id);
@@ -144,6 +145,7 @@ namespace OrderInvoice_BL.Contacts
         /// <param name="id">
         /// a piece of data that Uniquely identifies the data record in the db
         /// </param>
+        /// <param name="repository"></param>
         /// <returns>
         /// A new PhoneNumber object filled with data based on the id passed in
         /// </returns>
@@ -180,18 +182,18 @@ namespace OrderInvoice_BL.Contacts
         ///     true - return both active and inactive objects
         ///     false - return active objects only
         /// </param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static List<PhoneNumber> GetAll(bool includeDeleted, IRepository repository)
         {
             IEnumerable<IPhoneNumbers> tempList = null;
             List<PhoneNumber> returnValue = new List<PhoneNumber>();
-            PhoneNumber temp = null;
             tempList = repository.GetPhoneNumbers();
             foreach (IPhoneNumbers tempPhoneNumber in tempList)
             {
                 if (includeDeleted || !tempPhoneNumber.Deleted)
                 {
-                    temp = new PhoneNumber(repository);
+                    PhoneNumber temp = new PhoneNumber(repository);
                     temp.CopyPropertiesFromDbObj(tempPhoneNumber);
                     temp.isNew = false;
                     returnValue.Add(temp);
@@ -224,7 +226,7 @@ namespace OrderInvoice_BL.Contacts
         /// is set correctly
         /// will throw if validation fails
         /// </summary>
-        override protected void Validate()
+        protected override void Validate()
         {
             if (_number.IsEmpty())
             {

@@ -42,6 +42,7 @@ namespace OrderInvoice_BL.OrderInvoice
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected CustomItemOption(int id, IRepository repository) : this(repository)
         {
             ICustomItemOptions dbObj = GetDbRecord(id);
@@ -82,6 +83,7 @@ namespace OrderInvoice_BL.OrderInvoice
         /// <param name="id">
         /// a piece of data that Uniquely identifies the data record in the db
         /// </param>
+        /// <param name="repository"></param>
         /// <returns>
         /// A new order/invoice object filled with data based on the id passed in
         /// </returns>

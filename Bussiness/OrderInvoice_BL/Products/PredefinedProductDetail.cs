@@ -10,7 +10,7 @@ namespace OrderInvoice_BL.Products
     internal class PredefinedProductDetail : BussinessObject
     {
         #region Constants
-        public const int MaxValueLength = 150;
+        public const int VALUE_LENGTH = 150;
         #endregion Constants
 
         #region Local Vars
@@ -21,6 +21,7 @@ namespace OrderInvoice_BL.Products
         /// <summary>
         /// The predefined product
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         internal PredefinedProduct PredefinedProduct;
 
         /// <summary>
@@ -34,6 +35,7 @@ namespace OrderInvoice_BL.Products
         /// <summary>
         /// The attribute
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         internal Attribute Attribute;
 
         /// <summary>
@@ -61,7 +63,7 @@ namespace OrderInvoice_BL.Products
             get { return (this._value); }
             set
             {
-                if (value.Length > MaxValueLength)
+                if (value.Length > VALUE_LENGTH)
                 {
                     throw (new InvalidLengthException("The Value field is too long"));
                 }
@@ -97,7 +99,8 @@ namespace OrderInvoice_BL.Products
         /// Initializes a new instance of the <see cref="Products.PredefinedProduct"/> class.
         /// </summary>
         /// <param name="repository">The repository.</param>
-        /// <param name="product">The product which has already been made and is ready to be sold.</param>
+        /// <param name="predefinedProduct"></param>
+        /// <param name="attribute"></param>
         public PredefinedProductDetail(IRepository repository, PredefinedProduct predefinedProduct, Attribute attribute) : this(repository)
         {
             this.PredefinedProduct = predefinedProduct;
@@ -111,6 +114,7 @@ namespace OrderInvoice_BL.Products
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected PredefinedProductDetail(int id, IRepository repository) : this(repository)
         {
             IPredefinedProductDetail dbObj = GetDbRecord(id);
@@ -170,6 +174,7 @@ namespace OrderInvoice_BL.Products
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         internal static PredefinedProductDetail GetById(int id, IRepository repository)
         {
@@ -204,6 +209,8 @@ namespace OrderInvoice_BL.Products
         ///     true - return both active and inactive objects
         ///     false - return active objects only
         /// </param>
+        /// <param name="ppi"></param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         internal static List<PredefinedProductDetail> GetAll(bool includeDeleted, int ppi, IRepository repository)
         {

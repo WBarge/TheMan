@@ -10,8 +10,8 @@ namespace OrderInvoice_BL.Products
     public class Attribute : BussinessObject
     {
         #region Constants
-        public const int MaxNameLength = 150;
-        public const int MaxDescriptionLength = 255;
+        public const int NAME_LENGTH = 150;
+        public const int DESCRIPTION_LENGTH = 255;
         #endregion Constants
 
         #region Local Vars
@@ -32,7 +32,7 @@ namespace OrderInvoice_BL.Products
             get { return (_name); }
             set
             {
-                if (value.Length > MaxNameLength)
+                if (value.Length > NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The Name field is too long"));
                 }
@@ -55,7 +55,7 @@ namespace OrderInvoice_BL.Products
             get { return (_description); }
             set
             {
-                if (value.Length > MaxDescriptionLength)
+                if (value.Length > DESCRIPTION_LENGTH)
                 {
                     throw (new InvalidLengthException("The Description field is too long"));
                 }
@@ -92,6 +92,7 @@ namespace OrderInvoice_BL.Products
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected Attribute(int id, IRepository repository) : this(repository)
         {
             IAttributes dbObj = GetDbRecord(id);
@@ -146,6 +147,7 @@ namespace OrderInvoice_BL.Products
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static Attribute GetById(int id, IRepository repository)
         {
@@ -180,6 +182,7 @@ namespace OrderInvoice_BL.Products
         ///     true - return both active and inactive objects
         ///     false - return active objects only
         /// </param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static List<Attribute> GetAll(bool includeDeleted, IRepository repository)
         {

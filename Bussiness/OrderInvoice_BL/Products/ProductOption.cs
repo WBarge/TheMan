@@ -12,8 +12,8 @@ namespace OrderInvoice_BL.Products
     public class ProductOption : BussinessObject
     {
         #region Constants
-        public const int MaxNameLength = 150;
-        public const int MaxDescriptionLength = 255;
+        public const int NAME_LENGTH = 150;
+        public const int DESCRIPTION_LENGTH = 255;
         #endregion Constants
 
         #region Local Vars
@@ -34,7 +34,7 @@ namespace OrderInvoice_BL.Products
             get { return (_name); }
             set
             {
-                if (value.Length > MaxNameLength)
+                if (value.Length > NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The Name field is too long"));
                 }
@@ -57,7 +57,7 @@ namespace OrderInvoice_BL.Products
             get { return (_description); }
             set
             {
-                if (value.Length > MaxDescriptionLength)
+                if (value.Length > DESCRIPTION_LENGTH)
                 {
                     throw (new InvalidLengthException("The Description field is too long"));
                 }
@@ -94,6 +94,7 @@ namespace OrderInvoice_BL.Products
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected ProductOption(int id, IRepository repository) : this(repository)
         {
             IProductOptions dbObj = GetDbRecord(id);
@@ -146,6 +147,7 @@ namespace OrderInvoice_BL.Products
         /// <summary>
         /// Adds the attribute.
         /// </summary>
+        /// <param name="product"></param>
         /// <param name="attri">The attri.</param>
         /// <exception cref="InvalidParameterException">The passed in parameter to AddAttribute is null</exception>
         /// <exception cref="RequiredFieldException">The product option needs to be saved before any attributes can be added to it</exception>
@@ -178,10 +180,11 @@ namespace OrderInvoice_BL.Products
         /// <summary>
         /// Removes the attribute.
         /// </summary>
+        /// <param name="product"></param>
         /// <param name="attri">The attri.</param>
         /// <returns></returns>
         /// <exception cref="InvalidParameterException">The passed in parameter to RemoveAttribute is null</exception>
-        /// <exception cref="ClassDependancy">The attribute to remove has not been added to the system yet</exception>
+        /// <exception cref="ClassDependencyException">The attribute to remove has not been added to the system yet</exception>
         /// <exception cref="RequiredFieldException">The product needs to be saved before any attributes can be removed to it</exception>
         public bool RemoveAttribute(Product product, Attribute attri)
         {
@@ -368,6 +371,7 @@ namespace OrderInvoice_BL.Products
         /// <summary>
         /// Get the possible values for the attribute
         /// </summary>
+        /// <param name="product"></param>
         /// <param name="attri">the attribute</param>
         /// <returns></returns>
         public OptionAttributeValue[] GetAttributeValues(Product product, Attribute attri)
@@ -408,6 +412,7 @@ namespace OrderInvoice_BL.Products
 
         {
             bool found = false;
+            // ReSharper disable once PossibleMultipleEnumeration
             foreach (OptionAttributeValue av in optionAttributeValues)
             {
                 if (av.IsDefault)
@@ -424,6 +429,7 @@ namespace OrderInvoice_BL.Products
                 Repository.DeleteOptionAttriValue(optionAttributeValue.Id);
             }
             IAttributes attributeDbObj = Repository.GetAttribute(attribute.Id);
+            // ReSharper disable once PossibleMultipleEnumeration
             foreach (OptionAttributeValue optionAttributeValue in optionAttributeValues)
             {
                 IOptionsAttributeValues optionAttributeValueDbObj = Repository.CreateOptionAttriValue();
@@ -640,6 +646,7 @@ namespace OrderInvoice_BL.Products
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static ProductOption GetById(int id, IRepository repository)
         {
@@ -674,6 +681,7 @@ namespace OrderInvoice_BL.Products
         ///     true - return both active and inactive objects
         ///     false - return active objects only
         /// </param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static List<ProductOption> GetAll(bool includeDeleted, IRepository repository)
         {

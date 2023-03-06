@@ -6,16 +6,17 @@ namespace Exceptions
     public class ClassDependencyException : BaseException
 	{
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ClassDependancy"/> class.
+		/// Initializes a new instance of the <see cref="ClassDependencyException"/> class.
 		/// </summary>
-		public ClassDependencyException() : base() {}
+		public ClassDependencyException()
+        {}
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ClassDependancy"/> class.
+		/// Initializes a new instance of the <see cref="ClassDependencyException"/> class.
 		/// </summary>
 		/// <param name="message">A message that describes the error.</param>
 		public ClassDependencyException(string message) : base(message) {}
 		/// <summary>
-		/// Initializes a new instance of the <see cref="ClassDependancy"/> class.
+		/// Initializes a new instance of the <see cref="ClassDependencyException"/> class.
 		/// </summary>
 		/// <param name="message">The message.</param>
 		/// <param name="inner">The inner.</param>

@@ -13,8 +13,8 @@ namespace OrderInvoice_BL.Contacts
     {
 
         #region Constants
-        public const int MaxFirstNameLength = 40;
-        public const int MaxLastNameLength = 40;
+        public const int FIRST_NAME_LENGTH = 40;
+        public const int LAST_NAME_LENGTH = 40;
         #endregion
 
         #region Local Vars
@@ -33,7 +33,7 @@ namespace OrderInvoice_BL.Contacts
 
             set
             {
-                if (value.Length > MaxFirstNameLength)
+                if (value.Length > FIRST_NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The first name field is too long"));
                 }
@@ -50,7 +50,7 @@ namespace OrderInvoice_BL.Contacts
             get { return (lastName); }
             set
             {
-                if (value.Length > MaxLastNameLength)
+                if (value.Length > LAST_NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The last name field is too long"));
                 }
@@ -82,6 +82,7 @@ namespace OrderInvoice_BL.Contacts
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected Contact(int id, IRepository repository) : this(repository)
         {
             IContacts dbObj = GetDbRecord(id);
@@ -450,9 +451,11 @@ namespace OrderInvoice_BL.Contacts
             {
                 throw (new RequiredFieldException("The contact needs to be saved before any email addresses can be added to it"));
             }//end of if
-            addyObj = new EmailAddress(Repository);
-            addyObj.Address = addressToAdd;
-            addyObj.ContactId = Id;
+            addyObj = new EmailAddress(Repository)
+            {
+                Address = addressToAdd,
+                ContactId = Id
+            };
             if (GetAllEmailAddresses().Length < 1)
             {
                 addyObj.IsDefault = true;
@@ -703,6 +706,7 @@ namespace OrderInvoice_BL.Contacts
         /// <param name="id">
         /// a piece of data that Uniquely identifies the data record in the db
         /// </param>
+        /// <param name="repository"></param>
         /// <returns>
         /// A new contact object filled with data based on the id passed in
         /// </returns>
@@ -739,6 +743,8 @@ namespace OrderInvoice_BL.Contacts
         ///     true - return both active and inactive objects
         ///     false - return active objects only
         /// </param>
+        /// <param name="repository"></param>
+        /// <param name="excludeUserCreated"></param>
         /// <returns></returns>
         public static List<Contact> GetAll(bool includeDeleted, IRepository repository,bool excludeUserCreated = true)
         {
@@ -756,7 +762,7 @@ namespace OrderInvoice_BL.Contacts
                     {
                         returnValue.Add(temp);
                     }
-                    else if (temp.firstName != User.NoFirstName && temp.lastName != User.NoLastName)
+                    else if (temp.firstName != User.NO_FIRST_NAME && temp.lastName != User.NO_LAST_NAME)
                     {
                         returnValue.Add(temp);
                     }

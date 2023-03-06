@@ -17,7 +17,7 @@ namespace OrderInvoice_BL.Products
     public class PredefinedProduct : BussinessObject
     {
         #region Constants
-        public const int MaxDescriptionLength = 255;
+        public const int DESCRIPTION_LENGTH = 255;
         #endregion Constants
 
         #region Local Vars
@@ -25,6 +25,7 @@ namespace OrderInvoice_BL.Products
 
         #region Properties
 
+        // ReSharper disable once InconsistentNaming
         internal Product Product;
         /// <summary>
         /// Gets the product identifier.
@@ -56,7 +57,7 @@ namespace OrderInvoice_BL.Products
             get { return (_description); }
             set
             {
-                if (value.Length > MaxDescriptionLength)
+                if (value.Length > DESCRIPTION_LENGTH)
                 {
                     throw (new InvalidLengthException("The Description field is too long"));
                 }

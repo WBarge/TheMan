@@ -1,4 +1,17 @@
-﻿using System.Collections.Generic;
+﻿// ***********************************************************************
+// Assembly         : OrderInvoice_BL
+// Author           : Bill Barge
+// Created          : 03-01-2023
+//
+// Last Modified By : Bill Barge
+// Last Modified On : 03-01-2023
+// ***********************************************************************
+// <copyright file="Customer.cs" company="OrderInvoice_BL">
+//     Copyright (c) N/A. All rights reserved.
+// </copyright>
+// <summary></summary>
+// ***********************************************************************
+using System.Collections.Generic;
 using Exceptions;
 using OrderInvoice_BL.Contacts;
 using OrderInvoice_Interfaces.DB_DTOs;
@@ -7,6 +20,11 @@ using Utilites;
 
 namespace OrderInvoice_BL.People
 {
+    /// <summary>
+    /// Class Customer.
+    /// Implements the <see cref="OrderInvoice_BL.People.User" />
+    /// </summary>
+    /// <seealso cref="OrderInvoice_BL.People.User" />
     public class Customer : User
     {
 
@@ -21,35 +39,48 @@ namespace OrderInvoice_BL.People
         /// <summary>
         /// Gets the user identifier.
         /// </summary>
-        /// <value>
-        /// The user identifier.
-        /// </value>
-        public int UserId { get => base.Id;
+        /// <value>The user identifier.</value>
+        public int UserId { get => Id;
             internal set => Id = value;
         }
 
+        /// <summary>
+        /// Gets or sets the number.
+        /// </summary>
+        /// <value>The number.</value>
         public int Number { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether [shipping is same as billing].
+        /// </summary>
+        /// <value><c>true</c> if [shipping is same as billing]; otherwise, <c>false</c>.</value>
         public bool ShippingIsSameAsBilling { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is new.
         /// </summary>
-        /// <value>
-        /// <see langword="true" /> if this instance is new; otherwise, <see langword="false" />.
-        /// </value>
+        /// <value><see langword="true" /> if this instance is new; otherwise, <see langword="false" />.</value>
         internal bool IsNewCustomer { get; set; }
 
         #endregion Properties
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Customer"/> class.
+        /// </summary>
+        /// <param name="repository">The repository.</param>
         public Customer(IRepository repository) : base(repository)
         {
             CommonInit();
             SetNewFlags(true);
         }//end of constructor
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Customer"/> class.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="repository">The repository.</param>
         protected Customer(int id, IRepository repository) : this(repository)
         {
             BuildObjectFromDb(id);
@@ -64,7 +95,7 @@ namespace OrderInvoice_BL.People
         /// <summary>
         /// Permanently remove the object from the system.
         /// </summary>
-        /// <exception cref="DataException">You can not delete a new object</exception>
+        /// <exception cref="Exceptions.DataException">You can not delete a new object</exception>
         public override void PermanentlyRemoveFromSystem()
         {
             if (isNew)
@@ -75,6 +106,9 @@ namespace OrderInvoice_BL.People
             Repository.SaveChanges();
         }
 
+        /// <summary>
+        /// Saves this instance.
+        /// </summary>
         public override void Save()
         {
             this.Save(true);
@@ -83,6 +117,7 @@ namespace OrderInvoice_BL.People
         /// <summary>
         /// Saves this instance.
         /// </summary>
+        /// <param name="persist">if set to <c>true</c> [persist].</param>
         internal new void Save(bool persist)
         {
             base.Save(false);
@@ -106,9 +141,9 @@ namespace OrderInvoice_BL.People
 
         /// <summary>
         /// Gets the shipping address.
-        /// This will return the billing address 
-        /// if the customer is marked as the 
-        /// shipping address is the same as 
+        /// This will return the billing address
+        /// if the customer is marked as the
+        /// shipping address is the same as
         /// the billing address
         /// </summary>
         /// <returns>SnailMailAddress.</returns>
@@ -151,7 +186,7 @@ namespace OrderInvoice_BL.People
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <param name="repository">The repository.</param>
-        /// <returns></returns>
+        /// <returns>Customer.</returns>
         public static Customer GetCustomerById(int id, IRepository repository)
         {
             Customer returnValue = null;
@@ -173,7 +208,7 @@ namespace OrderInvoice_BL.People
         /// <param name="repository">The repository.</param>
         /// <param name="includedInActive">if set to <see langword="true" /> [included in active].</param>
         /// <param name="includedDeleted">if set to <see langword="true" /> [included deleted].</param>
-        /// <returns></returns>
+        /// <returns>List&lt;Customer&gt;.</returns>
         public static List<Customer> GetAllCustomers(IRepository repository, bool includedInActive = false, bool includedDeleted = false)
         {
             List<Customer> returnValue = new List<Customer>();
@@ -186,7 +221,7 @@ namespace OrderInvoice_BL.People
 
                 IContacts dbContactObj = tempObj.GetContactDbRecord(dbUserObj.Objid);
 
-                if (!includedDeleted && dbContactObj.Deleted != false) continue;
+                if (!includedDeleted && dbContactObj.Deleted) continue;
 
                 CopyProperties(dbCustomerObj, dbUserObj, dbContactObj, tempObj);
                 tempObj.SetNewFlags(false);
@@ -236,7 +271,8 @@ namespace OrderInvoice_BL.People
         /// <summary>
         /// Builds the object from database.
         /// </summary>
-        /// <param name="userId">The user identifier.</param>
+        /// <param name="employeeId">The employee identifier.</param>
+        /// <exception cref="Exceptions.ZeroResultsException">There is not a customer for the given Id</exception>
         private void BuildObjectFromDb(int employeeId)
         {
             ICustomers customer = GetCustomerDbRecord(employeeId);
@@ -250,6 +286,11 @@ namespace OrderInvoice_BL.People
             SetNewFlags(false);
         }
 
+        /// <summary>
+        /// Gets the customer database record.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>ICustomers.</returns>
         private ICustomers GetCustomerDbRecord(int id)
         {
             return Repository.GetCustomer(id);
@@ -259,7 +300,7 @@ namespace OrderInvoice_BL.People
         /// Gets the user database record.
         /// </summary>
         /// <param name="id">The identifier.</param>
-        /// <returns></returns>
+        /// <returns>IUsers.</returns>
         private IUsers GetUserDbRecord(int id)
         {
             return Repository.GetUser(id);
@@ -269,12 +310,16 @@ namespace OrderInvoice_BL.People
         /// Gets the contact database record.
         /// </summary>
         /// <param name="id">The identifier.</param>
-        /// <returns></returns>
+        /// <returns>IContacts.</returns>
         private IContacts GetContactDbRecord(int id)
         {
             return Repository.GetContact(id);
         }
 
+        /// <summary>
+        /// Sets the new flags.
+        /// </summary>
+        /// <param name="flag">if set to <c>true</c> [flag].</param>
         private void SetNewFlags(bool flag)
         {
             IsNew = flag;
@@ -340,13 +385,16 @@ namespace OrderInvoice_BL.People
         /// <summary>
         /// Copies the properties.
         /// </summary>
+        /// <param name="dbCustomer">The database customer.</param>
         /// <param name="dbUser">The database user.</param>
         /// <param name="dbContact">The database contact.</param>
-        /// <param name="user">The user.</param>
+        /// <param name="customer">The customer.</param>
         private static void CopyProperties(ICustomers dbCustomer, IUsers dbUser, IContacts dbContact, Customer customer)
         {
             customer.CopyPropertiesFromDbObj(dbCustomer);
+            // ReSharper disable once RedundantCast
             ((User)customer).CopyPropertiesFromDbObj(dbUser);
+            // ReSharper disable once RedundantCast
             ((Contact)customer).CopyPropertiesFromDbObj(dbContact);
         }
 

@@ -12,7 +12,7 @@ namespace OrderInvoice_BL.Contacts
     {
 
         #region Constants
-        public const int MaxAddresstypeLength = 50;
+        public const int ADDRESS_TYPE_LENGTH = 50;
         #endregion
 
         #region Local Vars
@@ -65,6 +65,7 @@ namespace OrderInvoice_BL.Contacts
         /// <param name="id">
         /// The id for the object to be loaded
         /// </param>
+        /// <param name="repository"></param>
         protected SnailMailType(int id, IRepository repository) : this(repository)
         {
             ISnailMailType dbObj = GetDbRecord(id);
@@ -97,6 +98,7 @@ namespace OrderInvoice_BL.Contacts
         /// by the primary identity
         /// </summary>
         /// <param name="id">the identity of the record to get</param>
+        /// <param name="repository"></param>
         /// <returns></returns>
         public static SnailMailType GetById(int id, IRepository repository)
         {

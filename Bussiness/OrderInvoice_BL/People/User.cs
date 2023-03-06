@@ -14,11 +14,11 @@ namespace OrderInvoice_BL.People
     {
 
         #region Constants
-        public const int MaxUserNameLength = 255;
-        public const int MaxPasswordLength = 255;
+        public const int USER_NAME_LENGTH = 255;
+        public const int PASSWORD_LENGTH = 255;
 
-        public const string NoFirstName = "UserCreatedFirstName";
-        public const string NoLastName = "UserCreatedLastName";
+        public const string NO_FIRST_NAME = "UserCreatedFirstName";
+        public const string NO_LAST_NAME = "UserCreatedLastName";
         #endregion Constants
 
         #region Local Vars
@@ -32,7 +32,7 @@ namespace OrderInvoice_BL.People
         /// <value>
         /// The contact identifier.
         /// </value>
-        public int ContactId { get { return base.Id; } internal set { base.Id = value; } }
+        public int ContactId { get { return Id; } internal set { Id = value; } }
 
         protected string userName;
         /// <summary>
@@ -47,7 +47,7 @@ namespace OrderInvoice_BL.People
             get { return (userName); }
             set
             {
-                if (value.Length > MaxUserNameLength)
+                if (value.Length > USER_NAME_LENGTH)
                 {
                     throw (new InvalidLengthException("The user name field is too long"));
                 }
@@ -76,7 +76,7 @@ namespace OrderInvoice_BL.People
                 {
                     throw (new InvalidParameterException("The password field cannot be empty"));
                 }
-                else if (value.Length > MaxPasswordLength)
+                else if (value.Length > PASSWORD_LENGTH)
                 {
                     throw (new InvalidLengthException("The password field is too long"));
                 }
@@ -252,8 +252,8 @@ namespace OrderInvoice_BL.People
         public static User CreateUserWithNoContact(IRepository repository, string userName, string password)
         {
             User u = new User(repository);
-            u.FirstName = NoFirstName;
-            u.LastName = NoLastName;
+            u.FirstName = NO_FIRST_NAME;
+            u.LastName = NO_LAST_NAME;
             u.UserName = userName;
             u.Password = password;
             u.Save();
@@ -335,12 +335,13 @@ namespace OrderInvoice_BL.People
         {
             User returnValue = null;
 
-            User userInSystem = User.GetAllUsers(repository).Where(u => u.UserName == userName).FirstOrDefault();
+            User userInSystem = GetAllUsers(repository).FirstOrDefault(u => u.UserName == userName);
             if (userInSystem.IsNotEmpty())
             {
                 User localUser = new User(repository);
                 localUser.UserName = userName;
                 localUser.Password = password;
+                // ReSharper disable once PossibleNullReferenceException
                 if (localUser.Password == userInSystem.Password)
                 {
                     returnValue = userInSystem;
@@ -505,7 +506,7 @@ namespace OrderInvoice_BL.People
         /// <returns></returns>
         private IContacts GetContactDbRecord(int id)
         {
-            return base.GetDbRecord(id);
+            return GetDbRecord(id);
         }
 
         /// <summary>
@@ -553,6 +554,7 @@ namespace OrderInvoice_BL.People
         /// <param name="user">The user.</param>
         private static void CopyProperties(IUsers dbUser, IContacts dbContact, User user)
         {
+            // ReSharper disable once RedundantCast
             ((Contact)user).CopyPropertiesFromDbObj(dbContact);
             user.CopyPropertiesFromDbObj(dbUser);
         }

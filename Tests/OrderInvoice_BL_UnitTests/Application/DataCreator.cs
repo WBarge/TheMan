@@ -15,7 +15,7 @@ namespace OrderInvoice_BL_UnitTests.Application
     internal static class DataCreator
     {
 
-        public static IApplicationConfiguration CreateDataObejct()
+        public static IApplicationConfiguration CreateDataObject()
         {
             IApplicationConfiguration result = new ApplicationConfigurationTestObjcet();
             result.Objid = 1;

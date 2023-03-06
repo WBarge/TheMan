@@ -47,7 +47,7 @@ namespace Encryption
 			{
 				key = Guid.NewGuid().ToString();
 			}
-			var charArray = key.Replace("-", string.Empty).ToCharArray().Reverse<char>();
+			var charArray = key.Replace("-", string.Empty).ToCharArray().Reverse();
 
 			return EncryptOneWay(new string(charArray.ToArray()));
 		}
